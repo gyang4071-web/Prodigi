@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#08110c" />
+<title>Prodigi Office — Paid Ads</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app" id="app">
+  <header class="topbar">
+    <div class="brand"><img src="assets/logo.svg" alt="Prodigi" /><span>9 YEARS</span></div>
+    <div class="top-actions entered-only">
+      <button class="quiet-btn" id="focusBtn">Focus</button>
+      <button class="quiet-btn" id="teamBtn">Team Space</button>
+    </div>
+  </header>
+
+  <main class="office-view" id="officeView">
+    <div class="office-backdrop"></div>
+    <div class="office-frame" id="officeFrame">
+      <img class="office-image" id="officeImage" src="assets/office.webp" alt="Prodigi Paid Ads office" />
+      <div class="office-shade"></div>
+
+      <button class="person person-lilit" data-person="lilit" aria-label="Open Lilit's space">
+        <span class="person-label"><strong>Lilit</strong><small>Head of Digital Department</small></span>
+      </button>
+      <button class="person person-maria" data-person="maria" aria-label="Open Maria's space">
+        <span class="person-label"><strong>Maria</strong><small>Head of Paid Ads</small></span>
+      </button>
+      <button class="person person-stepan" data-person="stepan" aria-label="Open Stepan's space">
+        <span class="person-label"><strong>Stepan</strong><small>Paid Ads Specialist / Account Manager</small></span>
+      </button>
+      <button class="person person-albert" data-person="albert" aria-label="Open Albert's space">
+        <span class="person-label"><strong>Albert</strong><small>Paid Ads Specialist / Account Manager</small></span>
+      </button>
+      <button class="person person-gevorg" data-person="gevorg" aria-label="Open Gevorg's space">
+        <span class="person-label"><strong>Gevorg</strong><small>Paid Ads Specialist / Account Manager</small></span>
+      </button>
+
+      <button class="team-door entered-only" id="teamDoor">
+        <span>PAID ADS</span>
+        <strong>Team Space</strong>
+        <small>Shared links · files · notes · tools</small>
+      </button>
+
+      <button class="enter-cta" id="enterCta">
+        <span class="enter-kicker">PRODIGI · 9 YEARS</span>
+        <strong>Enter Office</strong>
+        <span class="enter-arrow">→</span>
+      </button>
+    </div>
+
+    <div class="office-hint entered-only">Click a person to open their space</div>
+  </main>
+
+  <section class="space-layer" id="teamLayer" aria-hidden="true">
+    <div class="space-shell">
+      <aside class="space-rail">
+        <div class="rail-brand">
+          <span class="micro">PAID ADS</span>
+          <h2>Team Space</h2>
+          <p>Shared things the team actually needs.</p>
+        </div>
+        <nav class="rail-nav">
+          <button class="rail-item active" data-view="home">Home</button>
+          <button class="rail-item" data-view="files">Files</button>
+          <button class="rail-item" data-view="links">Links</button>
+          <button class="rail-item" data-view="notes">Notes</button>
+          <button class="rail-item" data-view="tools">Tools</button>
+        </nav>
+        <div class="rail-bottom">
+          <button class="rail-action" id="officePing">Office Ping</button>
+          <button class="rail-action" data-close-layer="teamLayer">← Back to office</button>
+        </div>
+      </aside>
+
+      <div class="space-content">
+        <header class="space-head">
+          <div>
+            <span class="micro green">SHARED WORKSPACE</span>
+            <h1 id="teamTitle">Paid Ads HQ</h1>
+          </div>
+          <div class="head-actions">
+            <button class="quiet-btn" id="addResourceBtn">+ Add resource</button>
+            <button class="close-btn" data-close-layer="teamLayer">×</button>
+          </div>
+        </header>
+
+        <div class="team-view active" data-view-panel="home">
+          <section class="command-hero">
+            <div class="command-copy">
+              <span class="micro green">COMMAND CENTER</span>
+              <h3>Everything useful. Nothing CRM-ish.</h3>
+              <p>Open what you need, store what matters, keep the noise out.</p>
+            </div>
+            <div class="team-presence">
+              <div class="initials"><span>M</span><span>S</span><span>L</span><span>A</span><span>G</span></div>
+              <small>5 teammates</small>
+            </div>
+          </section>
+
+          <section class="launch-grid">
+            <button class="launch-card" data-open-view="files">
+              <span class="micro">LIBRARY</span><strong>Files</strong><p>Briefs, decks, reports, references.</p><span class="open-text">Open library →</span>
+            </button>
+            <button class="launch-card" data-open-view="links">
+              <span class="micro">LAUNCHPAD</span><strong>Links</strong><p>Platforms and shared docs one click away.</p><span class="open-text">Open links →</span>
+            </button>
+            <button class="launch-card" data-open-view="notes">
+              <span class="micro">CONTEXT</span><strong>Notes</strong><p>Fast team context that shouldn't disappear.</p><span class="open-text">Open notes →</span>
+            </button>
+            <button class="launch-card" data-open-view="tools">
+              <span class="micro">UTILITIES</span><strong>Tools</strong><p>Small helpers for recurring PPC work.</p><span class="open-text">Open tools →</span>
+            </button>
+          </section>
+        </div>
+
+        <div class="team-view" data-view-panel="files">
+          <section class="section-intro"><div><span class="micro green">FILES</span><h3>Team Library</h3><p>Real folders you can enter — not dead storage boxes.</p></div><button class="primary-mini" id="uploadTeamFile">+ Add file</button><input type="file" id="teamFileInput" multiple hidden /></section>
+          <div class="folder-layout">
+            <div class="folder-list" id="teamFolderList"></div>
+            <div class="folder-detail" id="teamFolderDetail"></div>
+          </div>
+        </div>
+
+        <div class="team-view" data-view-panel="links">
+          <section class="section-intro"><div><span class="micro green">QUICK LINKS</span><h3>Launchpad</h3><p>Fast access to shared platforms and docs.</p></div><button class="primary-mini" id="addLinkBtn">+ Add link</button></section>
+          <div class="link-board" id="teamLinks"></div>
+        </div>
+
+        <div class="team-view" data-view-panel="notes">
+          <section class="section-intro"><div><span class="micro green">NOTES</span><h3>Team Context</h3><p>Short, visible, useful. Not a task manager.</p></div></section>
+          <div class="note-layout">
+            <textarea id="teamNotes" placeholder="Write something the team should keep in sight…"></textarea>
+            <div class="note-stack"><article><span>RULE</span><strong>Don't duplicate Bitrix.</strong></article><article><span>REMINDER</span><strong>Keep only recurring useful context here.</strong></article></div>
+          </div>
+        </div>
+
+        <div class="team-view" data-view-panel="tools">
+          <section class="section-intro"><div><span class="micro green">TOOLS</span><h3>Quick Utilities</h3><p>Simple helpers for daily PPC work.</p></div></section>
+          <div class="tools-grid">
+            <button data-tool="utm"><span>UTM</span><strong>UTM Builder</strong><small>Create clean campaign tags</small></button>
+            <button data-tool="budget"><span>₽</span><strong>Budget Split</strong><small>Period → daily budget</small></button>
+            <button data-tool="ctr"><span>%</span><strong>CTR Check</strong><small>Clicks ÷ impressions</small></button>
+            <button data-tool="specs"><span>↔</span><strong>Ad Specs</strong><small>Keep format limits close</small></button>
+          </div>
+          <div class="tool-console" id="toolConsole"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="space-layer" id="personLayer" aria-hidden="true">
+    <div class="person-shell">
+      <aside class="person-profile">
+        <button class="close-btn floating" data-close-layer="personLayer">×</button>
+        <div class="avatar" id="personAvatar">G</div>
+        <span class="micro green">PERSONAL SPACE</span>
+        <h2 id="personName">Gevorg</h2>
+        <p class="role" id="personRole">Paid Ads Specialist / Account Manager</p>
+        <p class="profile-copy" id="personDescription">Private links, files, notes and tools.</p>
+        <div class="access-box" id="accessBox">
+          <span class="micro">LOCAL DEMO ACCESS</span>
+          <div class="pin-line"><input id="pinInput" type="password" inputmode="numeric" maxlength="8" placeholder="PIN"/><button id="unlockPerson">Unlock</button></div>
+          <small>First PIN becomes this browser's local PIN for the selected person.</small>
+        </div>
+      </aside>
+
+      <div class="personal-content" id="personalContent" hidden>
+        <header class="space-head personal-head">
+          <div><span class="micro green">PRIVATE DESK</span><h1 id="personalGreeting">Welcome back.</h1></div>
+          <div class="head-actions"><button class="quiet-btn" id="personalAddBtn">+ Add</button><button class="close-btn" data-close-layer="personLayer">×</button></div>
+        </header>
+        <div class="personal-grid">
+          <button class="personal-module" data-person-module="my-files"><span class="micro">FILES</span><strong>My Files</strong><p>Personal docs, screenshots and references.</p><span>Open →</span></button>
+          <button class="personal-module" data-person-module="my-links"><span class="micro">LINKS</span><strong>My Links</strong><p>Frequently used sheets, docs and tools.</p><span>Open →</span></button>
+          <section class="personal-note"><span class="micro">NOTES</span><strong>Private Notes</strong><textarea id="personalNotes" placeholder="Write something only you should see…"></textarea></section>
+          <section class="personal-tools"><span class="micro">TOOLS</span><strong>My Shortcuts</strong><div class="shortcut-grid"><button>My reports</button><button>My sheets</button><button>My prompts</button><button>Saved refs</button></div></section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-card">
+      <button class="close-btn drawer-close" id="drawerClose">×</button>
+      <div id="drawerContent"></div>
+    </div>
+  </section>
+
+  <div class="toast" id="toast"></div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
