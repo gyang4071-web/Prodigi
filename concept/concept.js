@@ -170,7 +170,7 @@ const showcase = (() => {
   const root = $('#showcase');
   const figures = $('#figures');
   const bars = $('#bars');
-  const nameLayers = [$('#scNames'), $('#scNamesFront')];
+  const nameLayers = [$('#scNames')];
   const el = { intro: $('#scIntro'), role: $('#scRole'), zodiac: $('#scZodiac'), desc: $('#scDesc'), highlight: $('#scHighlight'), index: $('#scIndex') };
   const n = characters.length;
   const pad = (i) => String(i + 1).padStart(2, '0');
@@ -195,8 +195,8 @@ const showcase = (() => {
     index: (c, i) => `<span class="in">${pad(i)}</span>`,
   };
 
-  // Huge names: every line is sized to the width available, capped by viewport height,
-  // so short and long names both hold the composition.
+  // Huge names: every line is sized to the width of the left column, capped by
+  // viewport height, so short and long names both hold the composition.
   function setNames(c) {
     nameLayers.forEach((layer) => {
       layer.children[0].innerHTML = letters(c.name);
@@ -205,16 +205,13 @@ const showcase = (() => {
     fitNames();
   }
   function fitNames() {
-    const [back, front] = nameLayers;
-    const W = back.clientWidth;
-    const narrow = innerWidth <= 900;
-    const cap = narrow ? Math.min(innerHeight * 0.13, W * 0.3) : innerHeight * 0.19;
-    [...back.children].forEach((line, k) => {
+    const [names] = nameLayers;
+    const W = names.clientWidth;
+    const cap = innerWidth <= 900 ? Math.min(innerHeight * 0.13, W * 0.3) : innerHeight * 0.16;
+    [...names.children].forEach((line) => {
       line.style.setProperty('--fs', '100px');
       const w = line.getBoundingClientRect().width || 1;
-      const fs = Math.min((100 * W) / w, cap) + 'px';
-      line.style.setProperty('--fs', fs);
-      front.children[k].style.setProperty('--fs', fs);
+      line.style.setProperty('--fs', Math.min((100 * W) / w, cap) + 'px');
     });
   }
   addEventListener('resize', fitNames);

@@ -36,7 +36,7 @@ He lives for expos, new connections, and conversations that somehow end with a d
 
 Add perfect Russian, signature curly hair, and a gym-built body — basically, unfair competition.`,
     highlight: '“Give Taron a product, a badge, and one coffee break at an expo… he’ll come back with leads.”',
-    image: '../assets/international/01-taron-sargsyan.webp',
+    image: 'assets/international/01-taron-sargsyan.webp',
   },
   {
     name: 'Eduard',
@@ -51,7 +51,7 @@ His gesticulation deserves its own championship — honestly, he could probably 
 
 He’s caring, focused, and somehow always the unofficial guide for every new team member.`,
     highlight: '“When it comes to work, the calendar is mostly decorative — weekdays, weekends, after-hours… same energy.”',
-    image: '../assets/international/02-eduard-saghatelyan.webp',
+    image: 'assets/international/02-eduard-saghatelyan.webp',
   },
   {
     name: 'Gor',
@@ -66,7 +66,7 @@ His favorite word? “HaVVai eli”. Nobody knows exactly what it means, but Gor
 
 And then there’s his hair — basically sacred territory. The world may collapse, markets may crash, but Gor is NOT cutting it short.`,
     highlight: '“Big deals. Big dreams. Long hair. Priorities.”',
-    image: '../assets/international/03-gor-avetisyan.webp',
+    image: 'assets/international/03-gor-avetisyan.webp',
   },
   {
     name: 'Michael',
@@ -81,7 +81,7 @@ He’s a Real Madrid fan, easygoing and fun — but notices everything: every ty
 
 He doesn’t make much noise about his work. One minute he’s just smiling, the next there’s a big-budget deal on the table like it appeared by magic.`,
     highlight: '“Smiles quietly. Spots everything. Somehow comes back with the big deal.”',
-    image: '../assets/international/04-michael-gabrielyan.webp',
+    image: 'assets/international/04-michael-gabrielyan.webp',
   },
   {
     name: 'Karen',
@@ -96,7 +96,7 @@ He’s good at Belote, suspiciously committed to energy drinks, and probably run
 
 After work, when everyone else is ready to disappear, Karen starts his second shift: asking questions about the team, the company, the processes — basically conducting his own internal audit.`,
     highlight: '“20% sleep. 30% curiosity. 50% caffeine.”',
-    image: '../assets/international/05-karen-vopyan.webp',
+    image: 'assets/international/05-karen-vopyan.webp',
   },
   {
     name: 'Elina',
@@ -111,7 +111,7 @@ Her music taste goes from Michael Jackson to Lilit Hovhannisyan with zero warnin
 
 Stylish, beautiful, unapologetically feminist — and then there’s Aida. Elina loves her very, very much. If you’re standing suspiciously close to Aida… Elina has already noticed.`,
     highlight: '“Mafia queen. Style on point. Aida under protection.”',
-    image: '../assets/international/06-elina-manukyan.webp',
+    image: 'assets/international/06-elina-manukyan.webp',
   },
 ];
 
