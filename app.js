@@ -10,7 +10,7 @@
   // scene's own height times `scale`, so size tracks the office artwork at
   // every breakpoint; larger y = closer to the viewer = higher zIndex.
   // ---------------------------------------------------------------------
-  const BASE_H = 13.5;
+  const BASE_H = 20;
   let TEAM = [];
 
   const sceneWrap = document.getElementById('sceneWrap');

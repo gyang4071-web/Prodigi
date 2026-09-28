@@ -7,8 +7,8 @@
       "note": "Can turn “one small request” into a full launch plan.",
       "image": "assets/team/lilit.png",
       "pose": "standing",
-      "x": 52,
-      "y": 40.5,
+      "x": 50.5,
+      "y": 41.5,
       "scale": 1.0,
       "zIndex": 2
     },
@@ -20,7 +20,7 @@
       "image": "assets/team/maria.png",
       "pose": "standing-with-laptop",
       "x": 56,
-      "y": 38,
+      "y": 39,
       "scale": 1.0,
       "zIndex": 1
     },
@@ -31,9 +31,9 @@
       "note": "Probably has 14 tabs open right now.",
       "image": "assets/team/stepan.png",
       "pose": "standing-gesturing",
-      "x": 48.5,
-      "y": 48.5,
-      "scale": 1.04,
+      "x": 47,
+      "y": 50.5,
+      "scale": 1.03,
       "zIndex": 4
     },
     {
@@ -43,9 +43,9 @@
       "note": "Thinking in funnels even during lunch.",
       "image": "assets/team/albert.png",
       "pose": "standing-thoughtful",
-      "x": 59.5,
-      "y": 45.5,
-      "scale": 1.03,
+      "x": 61,
+      "y": 47,
+      "scale": 1.02,
       "zIndex": 3
     },
     {
@@ -55,9 +55,9 @@
       "note": "Explains PPC with his hands before opening the dashboard.",
       "image": "assets/team/gevorg.png",
       "pose": "standing-explaining",
-      "x": 55,
-      "y": 53.5,
-      "scale": 1.07,
+      "x": 54.5,
+      "y": 57.5,
+      "scale": 1.05,
       "zIndex": 5
     }
   ]
