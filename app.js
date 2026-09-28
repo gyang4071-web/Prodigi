@@ -4,27 +4,29 @@
   // ---------------------------------------------------------------------
   // Paid Ads cast — data-driven. Each member renders ONLY if its image
   // asset actually loads. Coordinates (x,y) are percentages of the office
-  // scene and anchor each character's FEET (bottom-center), confined to
-  // the upper-right zone under WE BUILD (never near Coffee Corner).
+  // scene and anchor each character's FEET (bottom-center). The team stands
+  // as one group on the open floor beside the Paid Ads desks under WE BUILD
+  // (never on furniture, never near Coffee Corner); larger y = closer to the
+  // viewer, so y also drives z-order and a slightly larger h.
   // height (h) is a percentage of the scene's own height, so scale tracks
   // the office artwork at every breakpoint instead of the viewport.
   // ---------------------------------------------------------------------
   const TEAM = [
     { id:'maria',  name:'Maria Petrosyan',  role:'Head of Paid Ads',
       note:'Can spot a broken campaign before coffee.',
-      image:'assets/team/maria.png',  x:62, y:31, h:17, z:2, pose:'standing' },
+      image:'assets/team/maria.png',  x:56.5, y:37.5, h:15, z:1, pose:'standing' },
     { id:'lilit',  name:'Lilit',            role:'Head of Digital Department',
       note:'Can turn “one small request” into a full launch plan.',
-      image:'assets/team/lilit.png',  x:68, y:30, h:12, z:1, pose:'sitting'  },
+      image:'assets/team/lilit.png',  x:52, y:40, h:14.5, z:2, pose:'standing' },
     { id:'gevorg', name:'Gevorg Gasparyan', role:'Paid Ads Specialist / Account Manager',
       note:'Explains PPC with his hands before opening the dashboard.',
-      image:'assets/team/gevorg.png', x:61, y:47, h:18, z:4, pose:'standing' },
+      image:'assets/team/gevorg.png', x:55.5, y:55, h:16, z:5, pose:'standing' },
     { id:'albert', name:'Albert Azaryan',   role:'Paid Ads Specialist / Account Manager',
       note:'Thinking in funnels even during lunch.',
-      image:'assets/team/albert.png', x:83, y:51, h:18, z:5, pose:'standing' },
+      image:'assets/team/albert.png', x:60.5, y:45.5, h:15.5, z:3, pose:'standing' },
     { id:'stepan', name:'Stepan',           role:'Paid Ads Specialist / Account Manager',
       note:'Probably has 14 tabs open right now.',
-      image:'assets/team/stepan.png', x:77, y:43, h:12, z:3, pose:'sitting'  },
+      image:'assets/team/stepan.png', x:47.5, y:49.5, h:15.5, z:4, pose:'standing' },
   ];
 
   const sceneWrap = document.getElementById('sceneWrap');
