@@ -184,7 +184,7 @@ img{max-width:100%}
 .enter-cta:hover{transform:translateY(-2px);box-shadow:0 14px 38px rgba(0,0,0,.34)}
 
 /* CAST — interactive people layer, rendered only when a member's image asset exists */
-.cast{position:absolute;inset:0;z-index:7;pointer-events:none}
+.cast{position:absolute;inset:0;z-index:11;pointer-events:none}
 .cast-member{
   position:absolute;left:var(--m-x,50%);top:var(--m-y,50%);height:var(--m-h,25%);
   transform:translate(-50%,-100%) scale(1);

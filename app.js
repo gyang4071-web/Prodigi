@@ -12,19 +12,19 @@
   const TEAM = [
     { id:'maria',  name:'Maria Petrosyan',  role:'Head of Paid Ads',
       note:'Can spot a broken campaign before coffee.',
-      image:'assets/team/maria.png',  x:74, y:35, h:23, z:1, pose:'standing' },
+      image:'assets/team/maria.png',  x:62, y:31, h:17, z:2, pose:'standing' },
     { id:'lilit',  name:'Lilit',            role:'Head of Digital Department',
       note:'Can turn “one small request” into a full launch plan.',
-      image:'assets/team/lilit.png',  x:64, y:37, h:14, z:2, pose:'sitting'  },
+      image:'assets/team/lilit.png',  x:68, y:30, h:12, z:1, pose:'sitting'  },
     { id:'gevorg', name:'Gevorg Gasparyan', role:'Paid Ads Specialist / Account Manager',
       note:'Explains PPC with his hands before opening the dashboard.',
-      image:'assets/team/gevorg.png', x:57, y:44, h:22, z:3, pose:'standing' },
+      image:'assets/team/gevorg.png', x:61, y:47, h:18, z:4, pose:'standing' },
     { id:'albert', name:'Albert Azaryan',   role:'Paid Ads Specialist / Account Manager',
       note:'Thinking in funnels even during lunch.',
-      image:'assets/team/albert.png', x:82, y:52, h:23, z:4, pose:'standing' },
+      image:'assets/team/albert.png', x:83, y:51, h:18, z:5, pose:'standing' },
     { id:'stepan', name:'Stepan',           role:'Paid Ads Specialist / Account Manager',
       note:'Probably has 14 tabs open right now.',
-      image:'assets/team/stepan.png', x:70, y:53, h:14, z:5, pose:'sitting'  },
+      image:'assets/team/stepan.png', x:77, y:43, h:12, z:3, pose:'sitting'  },
   ];
 
   const sceneWrap = document.getElementById('sceneWrap');
