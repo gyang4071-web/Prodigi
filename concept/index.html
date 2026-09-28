@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0b0a">
+<title>Prodigi — Departments</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="concept.css">
+</head>
+<body data-view="doors">
+<div class="grain" aria-hidden="true"></div>
+
+<header class="topbar">
+  <a class="logo" href="#" id="logo" aria-label="Prodigi, back to departments">
+    <span class="logo__mark" aria-hidden="true"></span>PRODIGI
+  </a>
+  <p class="topbar__meta">9th Anniversary <span aria-hidden="true">·</span> The Office</p>
+  <button class="back" id="backTop" type="button">
+    <span class="back__arrow" aria-hidden="true">←</span> <span class="back__long">Back to&nbsp;</span>departments
+  </button>
+</header>
+
+<main>
+  <!-- SCREEN 1: DOORS -->
+  <section class="hero" id="hero" aria-label="Departments">
+    <div class="hero__light" aria-hidden="true"></div>
+    <div class="hero__floor" aria-hidden="true"></div>
+
+    <div class="hero__copy">
+      <p class="eyebrow">Prodigi <span aria-hidden="true">/</span> 9 years <span aria-hidden="true">/</span> One office</p>
+      <h1 class="hero__title">Every department<br><em>is its own world.</em></h1>
+    </div>
+    <p class="hero__aside">Choose a door. The first one is open.</p>
+
+    <div class="doors" id="doors" role="list"></div>
+
+    <p class="hero__foot"><span class="hero__foot-dot" aria-hidden="true"></span><span id="openCount">1</span> of <span id="doorCount">5</span> doors open</p>
+  </section>
+
+  <!-- SCREEN 2: DEPARTMENT (filled from JS) -->
+  <section class="dept" id="dept" aria-label="International department" hidden>
+    <div class="dept__bg" aria-hidden="true"></div>
+
+    <div class="dept-intro">
+      <p class="eyebrow reveal" style="--d:0">Department 03 <span aria-hidden="true">/</span> Now open</p>
+      <h2 class="dept-intro__title" id="deptTitle" aria-label="International"></h2>
+      <div class="dept-intro__row">
+        <p class="dept-intro__lead reveal" style="--d:4" id="deptLead"></p>
+        <ol class="dept-intro__pillars reveal" style="--d:5" id="deptPillars"></ol>
+      </div>
+      <a class="scroll-cue reveal" style="--d:6" href="#showcase">
+        <span>Meet the team</span><span class="scroll-cue__line" aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div class="showcase" id="showcase" tabindex="0" aria-roledescription="carousel" aria-label="International team">
+      <div class="showcase__info" aria-live="polite">
+        <p class="sc-count"><span class="sc-count__now" id="scIndex">01</span><span class="sc-count__total" id="scTotal">/ 05</span></p>
+        <p class="sc-name swap" id="scName"></p>
+        <h3 class="sc-role swap" id="scRole"></h3>
+        <p class="sc-zodiac swap" id="scZodiac"></p>
+        <p class="sc-desc swap" id="scDesc"></p>
+        <div class="sc-fun" id="scFun">
+          <span class="sc-fun__label">Most likely to:</span>
+          <p class="sc-fun__text swap" id="scFunText"></p>
+        </div>
+      </div>
+
+      <div class="stage" id="stage">
+        <div class="stage__glow" id="stageGlow" aria-hidden="true"></div>
+        <div class="stage__floor" aria-hidden="true"></div>
+        <div class="stage__figures" id="figures"></div>
+      </div>
+
+      <div class="sc-nav">
+        <button class="sc-arrow" id="prev" type="button" aria-label="Previous person">←</button>
+        <div class="sc-bars" id="bars" role="tablist" aria-label="Choose a person"></div>
+        <button class="sc-arrow" id="next" type="button" aria-label="Next person">→</button>
+        <p class="sc-hint"><span class="sc-hint--fine">Scroll, drag or use arrow keys</span><span class="sc-hint--touch">Swipe to meet the team</span></p>
+      </div>
+    </div>
+
+    <footer class="dept-foot">
+      <p class="dept-foot__note">More doors open soon.</p>
+      <button class="dept-foot__back" id="backBottom" type="button">
+        <span aria-hidden="true">←</span> Back to departments
+      </button>
+    </footer>
+  </section>
+</main>
+
+<!-- Overlay used for the door → department transition -->
+<div class="portal" id="portal" aria-hidden="true"><div class="portal__light" id="portalLight"></div></div>
+
+<script type="module" src="concept.js"></script>
+</body>
+</html>
