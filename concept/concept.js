@@ -168,15 +168,12 @@ $('#deptPillars').innerHTML = international.pillars.map((p, i) => `<li><span>0${
 ---------------------------------------------------------------- */
 const showcase = (() => {
   const root = $('#showcase');
-  const stage = $('#stage');
   const figures = $('#figures');
-  const glow = $('#stageGlow');
-  const deptBg = $('.dept__bg');
   const bars = $('#bars');
-  const el = { name: $('#scName'), role: $('#scRole'), zodiac: $('#scZodiac'), desc: $('#scDesc'), fun: $('#scFunText') };
+  const nameLayers = [$('#scNames'), $('#scNamesFront')];
+  const el = { intro: $('#scIntro'), role: $('#scRole'), zodiac: $('#scZodiac'), desc: $('#scDesc'), highlight: $('#scHighlight'), index: $('#scIndex') };
   const n = characters.length;
-  // background accent drifts a little per person (position only, colour stays on-brand)
-  const accents = [[-16, 70, 58], [18, 64, 44], [-6, 76, 62], [22, 60, 50], [-20, 70, 40]];
+  const pad = (i) => String(i + 1).padStart(2, '0');
   let idx = 0, lock = false, figure = null;
 
   characters.forEach((c) => { if (c.image) new Image().src = c.image; });
@@ -184,103 +181,137 @@ const showcase = (() => {
   bars.innerHTML = characters.map((c, i) => `<button class="sc-bar" type="button" role="tab" aria-label="${esc(fullName(c))}" data-i="${i}"></button>`).join('');
 
   function fullName(c) { return [c.name, c.surname].filter(Boolean).join(' '); }
-  const inner = {
-    name: (c) => `<span class="in">${esc(c.name)}${c.surname ? ` <em>${esc(c.surname)}</em>` : ''}</span>`,
-    role: (c) => c.role.split(/\s+/).map((w) => `<span class="w"><span class="in">${esc(w)}</span></span>`).join(''),
+  const letters = (w) => [...w].map((ch) => `<span class="l">${ch === ' ' ? '&nbsp;' : esc(ch)}</span>`).join('');
+  const roleLines = (c) => c.roleLines || [c.role.split(' ')[0], c.role.split(' ').slice(1).join(' ')].filter(Boolean);
+  const paragraphs = (t) => t.split(/\n{2,}/).map((p) => `<p>${esc(p).replace(/\n/g, '<br>')}</p>`).join('');
+
+  // each text block renders into masked ".in" pieces so it can slide out / in
+  const render = {
+    intro: (c) => `<span class="in">${esc(c.intro)}</span>`,
+    role: (c) => roleLines(c).map((l) => `<span class="rl"><span class="in">${esc(l)}</span></span>`).join(''),
     zodiac: (c) => `<span class="in"><span class="sym">${zodiacSigns[c.zodiac.toLowerCase()] || ''}︎</span>${esc(c.zodiac)}</span>`,
-    desc: (c) => `<span class="in">${esc(c.description)}</span>`,
-    fun: (c) => `<span class="in">${esc(c.funFact)}</span>`,
+    desc: (c) => `<div class="in">${paragraphs(c.description)}</div>`,
+    highlight: (c) => `<span class="in">${esc(c.highlight)}</span>`,
+    index: (c, i) => `<span class="in">${pad(i)}</span>`,
   };
 
-  function makeFigure(c) {
-    let f;
-    if (c.image) {
-      f = new Image();
-      f.src = c.image;
-      f.alt = fullName(c);
-      f.draggable = false;
-    } else {
-      f = document.createElement('div');
-      f.innerHTML = `<div><b>${esc(c.name[0] || '')}${esc((c.surname || '')[0] || '')}</b>Portrait pending</div>`;
-      f.classList.add('figure--pending');
-    }
-    f.classList.add('figure');
-    return f;
+  // Huge names: every line is sized to the width available, capped by viewport height,
+  // so short and long names both hold the composition.
+  function setNames(c) {
+    nameLayers.forEach((layer) => {
+      layer.children[0].innerHTML = letters(c.name);
+      layer.children[1].innerHTML = letters(c.surname || '');
+    });
+    fitNames();
+  }
+  function fitNames() {
+    const [back, front] = nameLayers;
+    const W = back.clientWidth;
+    const narrow = innerWidth <= 900;
+    const cap = narrow ? Math.min(innerHeight * 0.13, W * 0.3) : innerHeight * 0.19;
+    [...back.children].forEach((line, k) => {
+      line.style.setProperty('--fs', '100px');
+      const w = line.getBoundingClientRect().width || 1;
+      const fs = Math.min((100 * W) / w, cap) + 'px';
+      line.style.setProperty('--fs', fs);
+      front.children[k].style.setProperty('--fs', fs);
+    });
+  }
+  addEventListener('resize', fitNames);
+  document.fonts?.ready.then(fitNames);
+
+  function makeFigure(c, i) {
+    const pending = () => {
+      const f = document.createElement('div');
+      f.className = 'figure figure--pending';
+      f.innerHTML = `<b>${esc(c.name[0] || '')}${esc((c.surname || '')[0] || '')}</b>Image slot ${pad(i)}${c.image ? `<code>${esc(c.image.split('/').pop())}</code>` : ''}`;
+      return f;
+    };
+    if (!c.image) return pending();
+    const img = new Image();
+    img.className = 'figure';
+    img.alt = fullName(c);
+    img.draggable = false;
+    img.onerror = () => { if (img.isConnected) { const p = pending(); p.style.cssText = img.style.cssText; img.replaceWith(p); if (figure === img) figure = p; } };
+    img.src = c.image;
+    return img;
   }
 
   function setMeta(i) {
     const c = characters[i];
-    $('#scIndex').textContent = String(i + 1).padStart(2, '0');
+    $('#scName').textContent = `${fullName(c)}, ${c.role}`;
     [...bars.children].forEach((b, j) => b.setAttribute('aria-selected', j === i));
-    const [gx, bx, by] = accents[i % accents.length];
-    glow.style.setProperty('--glow-x', gx + 'px');
-    deptBg.style.setProperty('--gx', bx + '%');
-    deptBg.style.setProperty('--gy', by + '%');
   }
 
   function renderStatic(i) {
     const c = characters[i];
-    el.name.innerHTML = inner.name(c);
-    el.role.innerHTML = inner.role(c);
-    el.zodiac.innerHTML = inner.zodiac(c);
-    el.desc.innerHTML = inner.desc(c);
-    el.fun.innerHTML = inner.fun(c);
-    figures.replaceChildren(figure = makeFigure(c));
+    Object.keys(render).forEach((k) => { el[k].innerHTML = render[k](c, i); });
+    setNames(c);
+    figures.replaceChildren(figure = makeFigure(c, i));
     setMeta(i);
   }
 
-  // text: every line slides out of its mask and the new one rises in, in a short cascade
-  function swapText(c, dir) {
-    const order = ['name', 'role', 'zodiac', 'desc', 'fun'];
-    let delay = 0;
-    order.forEach((key) => {
-      const host = el[key];
-      const olds = [...host.querySelectorAll('.in')];
-      olds.forEach((o, k) => o.animate(
-        [{ transform: 'none', opacity: 1 }, { transform: `translateY(${-dir * 100}%)`, opacity: 0 }],
-        { duration: T(360), delay: T(delay + k * 25), easing: 'cubic-bezier(.6,0,.8,.4)', fill: 'forwards' }
-      ));
-      const d = delay;
-      setTimeout(() => {
-        host.innerHTML = inner[key](c);
-        [...host.querySelectorAll('.in')].forEach((o, k) => o.animate(
-          [{ transform: `translateY(${dir * 100}%)`, opacity: 0 }, { transform: 'none', opacity: 1 }],
-          { duration: T(720), delay: T(k * 45), easing: EASE, fill: 'backwards' }
-        ));
-      }, T(d + 380));
-      delay += 55;
-    });
+  const OUT = 'cubic-bezier(.6,0,.8,.4)';
+  function slideOut(nodes, dir, delay, stagger = 25, dur = 340) {
+    nodes.forEach((o, k) => o.animate(
+      [{ transform: 'none', opacity: 1 }, { transform: `translateY(${-dir * 105}%)`, opacity: 0 }],
+      { duration: T(dur), delay: T(delay + k * stagger), easing: OUT, fill: 'forwards' }
+    ));
+  }
+  function slideIn(nodes, dir, delay, stagger = 45, dur = 760) {
+    nodes.forEach((o, k) => o.animate(
+      [{ transform: `translateY(${dir * 105}%)`, opacity: 0 }, { transform: 'none', opacity: 1 }],
+      { duration: T(dur), delay: T(delay + k * stagger), easing: EASE, fill: 'backwards' }
+    ));
   }
 
+  // "page turn": names, figure and every text block change together, with small offsets
   function go(to, dir) {
-    if (lock || to === idx) return;
+    if (lock) return;
     to = (to + n) % n;
+    if (to === idx) return;
     dir = dir || (to > idx ? 1 : -1);
     lock = true;
     const c = characters[to];
 
-    // outgoing figure: drifts to the side and back
+    // 1. huge names, letter by letter
+    const oldLetters = nameLayers.flatMap((l) => [...l.querySelectorAll('.l')]);
+    nameLayers.forEach((l) => slideOut([...l.querySelectorAll('.l')], dir, 0, 14, 380));
+    setTimeout(() => {
+      setNames(c);
+      nameLayers.forEach((l) => slideIn([...l.querySelectorAll('.l')], dir, 0, 22, 820));
+    }, T(420 + Math.min(oldLetters.length / 2, 12) * 14));
+
+    // 2. figure: current drifts sideways, shrinks, fades; next enters from the other side
     const old = figure;
     const from = getComputedStyle(old).transform;
     old.animate(
       [{ transform: from === 'none' ? 'translateX(-50%)' : from, opacity: 1, filter: 'blur(0px) brightness(1)' },
-       { transform: `translateX(calc(-50% + ${-dir * 42}%)) scale(.82)`, opacity: 0, filter: 'blur(10px) brightness(.6)' }],
-      { duration: T(800), easing: EASE_IO, fill: 'forwards' }
+       { transform: `translateX(calc(-50% + ${-dir * 38}%)) scale(.86)`, opacity: 0, filter: 'blur(8px) brightness(.6)' }],
+      { duration: T(760), easing: EASE_IO, fill: 'forwards' }
     ).finished.then(() => old.remove());
-
-    // incoming figure: small slide + scale into place
-    figure = makeFigure(c);
+    figure = makeFigure(c, to);
     figures.appendChild(figure);
     figure.animate(
       [{ transform: `translateX(calc(-50% + ${dir * 30}%)) scale(.9)`, opacity: 0, filter: 'blur(8px)' },
        { transform: 'translateX(-50%) scale(1)', opacity: 1, filter: 'blur(0px)' }],
-      { duration: T(1000), delay: T(220), easing: EASE, fill: 'backwards' }
+      { duration: T(1000), delay: T(260), easing: EASE, fill: 'backwards' }
     );
 
-    swapText(c, dir);
+    // 3. foreground text, cascading
+    ['index', 'intro', 'role', 'zodiac', 'desc', 'highlight'].forEach((key, k) => {
+      const host = el[key];
+      const d = 80 + k * 50;
+      slideOut([...host.querySelectorAll('.in')], dir, d);
+      setTimeout(() => {
+        host.innerHTML = render[key](c, to);
+        slideIn([...host.querySelectorAll('.in')], dir, 0);
+      }, T(d + 380));
+    });
+
     idx = to;
     setMeta(idx);
-    setTimeout(() => { lock = false; }, T(950));
+    setTimeout(() => { lock = false; }, T(1100));
   }
 
   // arrows, bars, keys
@@ -318,19 +349,19 @@ const showcase = (() => {
     if (Math.abs(acc) > 40) { acc = 0; held = true; go(to, dir); }
   }, { passive: false });
 
-  // drag / swipe on the stage
+  // drag / swipe anywhere on the composition
   let drag = null;
-  stage.addEventListener('pointerdown', (e) => {
-    if (lock || (e.pointerType === 'mouse' && e.button !== 0)) return;
+  root.addEventListener('pointerdown', (e) => {
+    if (lock || e.target.closest('button') || (e.pointerType === 'mouse' && e.button !== 0)) return;
     drag = { x: e.clientX, y: e.clientY, dx: 0, id: e.pointerId, moved: false };
   });
-  stage.addEventListener('pointermove', (e) => {
+  root.addEventListener('pointermove', (e) => {
     if (!drag || e.pointerId !== drag.id) return;
     drag.dx = e.clientX - drag.x;
     if (!drag.moved && Math.abs(drag.dx) > 8 && Math.abs(drag.dx) > Math.abs(e.clientY - drag.y)) {
       drag.moved = true;
-      stage.setPointerCapture(e.pointerId);
-      stage.classList.add('is-dragging');
+      root.setPointerCapture(e.pointerId);
+      root.classList.add('is-dragging');
     }
     if (drag.moved) figure.style.transform = `translateX(calc(-50% + ${drag.dx * 0.45}px)) rotate(${drag.dx * 0.01}deg)`;
   });
@@ -338,7 +369,7 @@ const showcase = (() => {
     if (!drag) return;
     const { dx, moved } = drag;
     drag = null;
-    stage.classList.remove('is-dragging');
+    root.classList.remove('is-dragging');
     if (!moved) return;
     if (Math.abs(dx) > 60) {
       go(idx + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
@@ -348,8 +379,8 @@ const showcase = (() => {
     }
     requestAnimationFrame(() => { figure.style.transform = ''; });
   };
-  stage.addEventListener('pointerup', endDrag);
-  stage.addEventListener('pointercancel', endDrag);
+  root.addEventListener('pointerup', endDrag);
+  root.addEventListener('pointercancel', endDrag);
 
   return { reset() { idx = 0; renderStatic(0); } };
 })();

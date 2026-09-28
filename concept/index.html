@@ -57,22 +57,28 @@
     </div>
 
     <div class="showcase" id="showcase" tabindex="0" aria-roledescription="carousel" aria-label="International team">
-      <div class="showcase__info" aria-live="polite">
-        <p class="sc-count"><span class="sc-count__now" id="scIndex">01</span><span class="sc-count__total" id="scTotal">/ 05</span></p>
-        <p class="sc-name swap" id="scName"></p>
-        <h3 class="sc-role swap" id="scRole"></h3>
-        <p class="sc-zodiac swap" id="scZodiac"></p>
-        <p class="sc-desc swap" id="scDesc"></p>
-        <div class="sc-fun" id="scFun">
-          <span class="sc-fun__label">Most likely to:</span>
-          <p class="sc-fun__text swap" id="scFunText"></p>
-        </div>
-      </div>
-
+      <div class="sc-names" id="scNames" aria-hidden="true"><div class="sc-first"></div><div class="sc-last"></div></div>
+      <div class="sc-scrim" aria-hidden="true"></div>
       <div class="stage" id="stage">
-        <div class="stage__glow" id="stageGlow" aria-hidden="true"></div>
         <div class="stage__floor" aria-hidden="true"></div>
         <div class="stage__figures" id="figures"></div>
+      </div>
+      <div class="sc-names sc-names--front" id="scNamesFront" aria-hidden="true"><div class="sc-first"></div><div class="sc-last"></div></div>
+
+      <div class="sc-left" aria-live="polite">
+        <p class="sc-count"><span class="sc-count__now" id="scIndex"></span><span class="sc-count__total" id="scTotal"></span></p>
+        <h3 class="sr-only" id="scName"></h3>
+        <p class="sc-intro swap" id="scIntro"></p>
+        <p class="sc-role" id="scRole"></p>
+        <p class="sc-zodiac swap" id="scZodiac"></p>
+      </div>
+
+      <div class="sc-right">
+        <div class="sc-desc swap" id="scDesc"></div>
+        <figure class="sc-highlight">
+          <span class="sc-highlight__label">Highlight</span>
+          <blockquote class="sc-highlight__text swap" id="scHighlight"></blockquote>
+        </figure>
       </div>
 
       <div class="sc-nav">
