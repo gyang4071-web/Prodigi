@@ -3,7 +3,7 @@
 // the first person in `people` is always the head of the department.
 //
 // Person fields (only name is required; empty ones are simply not shown):
-//   name, surname, role, roleLines (how the title stacks: small yellow line,
+//   name, surname, role, roleLines (how the title stacks: small accent line,
 //   then a huge line), zodiac, intro, description (blank line = new paragraph),
 //   highlight, image (full-body cut-out with a transparent background).
 
@@ -207,6 +207,59 @@ But Tatul’s strongest sense of optimization may have nothing to do with search
   },
 ];
 
+const production = [
+  {
+    name: 'Siranush',
+    surname: 'Tovmasyan',
+    role: 'Head of Production',
+    roleLines: ['Head of', 'Production'],
+    zodiac: 'Gemini',
+    intro: 'Head of Production by title, tech witch by skill set, future farmer by life plan.',
+    description: `She knows marketing, understands AI suspiciously well, and at this point treats AI agents less like tools and more like unpaid members of her department.
+
+Cats, dogs, cooking, cute anime, vegetables from her own garden — basically, half production head, half cottage-core final boss.
+
+At first she may seem a little spiky. Plot twist: she’s actually very cute.`,
+    highlight: '“Just check the weather before approaching — her mood may already have synced with it.”',
+    // character render not supplied yet: the stage shows an image slot
+    image: 'assets/production/01-siranush-tovmasyan.webp',
+  },
+  {
+    name: 'Anna',
+    surname: 'Hovhannisyan',
+    role: 'Senior Graphic Designer',
+    roleLines: ['Senior Graphic', 'Designer'],
+    zodiac: 'Pisces',
+    intro: 'Senior Graphic Designer by title, branding superstar and unofficial taste police by nature.',
+    description: `Clothes, interiors, music, movies — Anna has an opinion on everything, and annoyingly, it’s usually right. With a past in cinema, bad composition has no chance.
+
+She loves Zemfira, Okean Elzy, traveling, and making brands look expensive.
+
+At first, she may seem “a little complicated.” Later, people somehow can’t imagine life without her.`,
+    highlight: '“Anna has compromising videos from almost every corporate party. Stay on her good side.”',
+    image: 'assets/production/02-anna-hovhannisyan.webp',
+  },
+  {
+    name: 'Tigran',
+    surname: 'Hovhannisyan',
+    role: 'Motion Graphic Designer',
+    roleLines: ['Motion Graphic', 'Designer'],
+    zodiac: 'Leo',
+    intro: 'Motion Graphic Designer by title, cinema encyclopedia by default.',
+    description: `Dolly, shooting, character animation — he knows the whole game. He climbed Mount Ararat with the Prodigi flag and has literally worked from a mountain, because apparently altitude is not an excuse.
+
+He loves rabiz, can stretch one bag of chips for two weeks, and owns basically every vehicle known to mankind. Bike, moto, car, off-roader… probably a helicopter and a private jet too.`,
+    highlight: '“No proof. But we all know.”',
+    image: 'assets/production/03-tigran-hovhannisyan.webp',
+  },
+];
+
+// People whose names have not arrived yet: the department name stands in.
+const team = (label, folder, count) => Array.from({ length: count }, (_, i) => ({
+  name: label, surname: 'Team', roleLines: ['Name', 'coming soon'],
+  image: `assets/${folder}/0${i + 1}-member.webp`,
+}));
+
 // Order follows the company structure.
 export const departments = [
   {
@@ -235,12 +288,19 @@ export const departments = [
       { name: 'Meri', surname: 'Ratevosyan', role: 'Native ARM', roleLines: ['Native', 'ARM'], image: 'assets/native-arm/02-meri-ratevosyan.webp' },
     ],
   },
-  { id: 'native-uzb', name: 'Native UZB', lead: 'Valera' },
-  { id: 'production', name: 'Production', lead: 'Siranush' },
+  { id: 'native-uzb', name: 'Native UZB', lead: 'Valera', people: team('Native UZB', 'native-uzb', 4) },
+  { id: 'production', name: 'Production', lead: 'Siranush', people: production },
   { id: 'seo', name: 'SEO', lead: 'Seyran', people: seo },
-  { id: 'smm', name: 'SMM' },
-  { id: 'operations-sales', name: 'Operations & Sales' },
-  { id: 'accounting', name: 'Accounting' },
+  { id: 'smm', name: 'SMM', people: team('SMM', 'smm', 5) },
+  { id: 'operations-sales', name: 'Operations & Sales', people: team('Ops & Sales', 'operations-sales', 5) },
+  {
+    id: 'accounting', name: 'Accounting',
+    people: [
+      { name: 'Arpi', surname: 'Zaqaryan', role: 'Accounting', roleLines: ['Prodigi', 'Accounting'], image: 'assets/accounting/01-arpi-zaqaryan.webp' },
+      { name: 'Gevorg', surname: 'Nazaretyan', role: 'Accounting', roleLines: ['Prodigi', 'Accounting'], image: 'assets/accounting/02-gevorg-nazaretyan.webp' },
+      { name: 'Lusik', surname: 'Melqonyan', role: 'Accounting', roleLines: ['Prodigi', 'Accounting'], image: 'assets/accounting/03-lusik-melqonyan.webp' },
+    ],
+  },
 ].map((d, i) => ({ index: String(i + 1).padStart(2, '0'), ...d, people: d.people || [], open: !!d.people?.length }));
 
 export const zodiacSigns = {

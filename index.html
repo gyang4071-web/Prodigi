@@ -33,13 +33,13 @@
       <p class="eyebrow">Prodigi <span aria-hidden="true">/</span> 9 years <span aria-hidden="true">/</span> One office</p>
       <h1 class="hero__title">Every department<br><em>is its own world.</em></h1>
     </div>
-    <p class="hero__aside">Scroll through the departments. Open doors glow yellow.</p>
+    <p class="hero__aside">Scroll through the departments. Open doors glow green.</p>
 
     <div class="doors" id="doors" role="list"></div>
 
     <div class="hero__foot">
       <button class="doors-arrow" id="doorsPrev" type="button" aria-label="Previous department">←</button>
-      <p class="hero__foot-text"><span class="hero__foot-name" id="doorName"></span><span class="hero__foot-count"><span class="hero__foot-dot" aria-hidden="true"></span><span id="openCount">1</span> of <span id="doorCount">5</span> doors open</span></p>
+      <p class="hero__foot-text"><span class="hero__foot-name" id="doorName"></span><span class="hero__foot-count"><span class="hero__foot-dot" aria-hidden="true"></span><span id="doorSummary"></span></span></p>
       <button class="doors-arrow" id="doorsNext" type="button" aria-label="Next department">→</button>
     </div>
   </section>
@@ -48,19 +48,18 @@
   <section class="dept" id="dept" aria-label="International department" hidden>
     <div class="dept__bg" aria-hidden="true"></div>
 
-    <div class="dept-intro">
-      <p class="eyebrow reveal" style="--d:0" id="deptEyebrow"></p>
-      <h2 class="dept-intro__title" id="deptTitle" aria-label="International"></h2>
-      <div class="dept-intro__row">
-        <p class="dept-intro__lead reveal" style="--d:4" id="deptLead"></p>
-        <ol class="dept-intro__pillars reveal" style="--d:5" id="deptPillars"></ol>
-      </div>
-      <a class="scroll-cue reveal" style="--d:6" href="#showcase">
-        <span>Meet the team</span><span class="scroll-cue__line" aria-hidden="true"></span>
-      </a>
-    </div>
-
     <div class="showcase" id="showcase" tabindex="0" aria-roledescription="carousel" aria-label="International team">
+      <header class="sc-head">
+        <div class="sc-head__main">
+          <p class="eyebrow reveal" style="--d:0" id="deptEyebrow"></p>
+          <h2 class="dept-intro__title" id="deptTitle"></h2>
+        </div>
+        <div class="sc-head__side reveal" style="--d:3">
+          <p class="dept-intro__lead" id="deptLead"></p>
+          <ol class="dept-intro__pillars" id="deptPillars"></ol>
+        </div>
+      </header>
+
       <div class="stage" id="stage">
         <div class="stage__floor" aria-hidden="true"></div>
         <div class="stage__figures" id="figures"></div>
@@ -92,7 +91,7 @@
     </div>
 
     <footer class="dept-foot">
-      <p class="dept-foot__note">More doors open soon.</p>
+      <p class="dept-foot__note">Every door leads to a team.</p>
       <button class="dept-foot__back" id="backBottom" type="button">
         <span aria-hidden="true">←</span> Back to departments
       </button>

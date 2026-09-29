@@ -39,8 +39,8 @@ doorsEl.innerHTML = departments.map((d) => {
     ${d.lead ? `<span class="door__lead" aria-hidden="true">Head · <b>${esc(d.lead)}</b></span>` : ''}
   </${tag}>`;
 }).join('');
-$('#doorCount').textContent = departments.length;
-$('#openCount').textContent = departments.filter((d) => d.open).length;
+const openDoors = departments.filter((d) => d.open).length;
+$('#doorSummary').textContent = openDoors === departments.length ? `${openDoors} departments, all open` : `${openDoors} of ${departments.length} doors open`;
 
 const doorList = [...doorsEl.children];
 let activeDoor = doorList[departments.findIndex((d) => d.id === 'international')] || $('.door--active', doorsEl);
@@ -237,7 +237,7 @@ function setDept(d) {
   titleEl.setAttribute('aria-label', d.name);
   titleEl.innerHTML = [...d.name].map((c, i) => `<span class="ch" style="--i:${i}" aria-hidden="true">${c === ' ' ? '&nbsp;' : esc(c)}</span>`).join('');
   $('#deptLead').textContent = d.tagline
-    || (d.lead ? `${n === 1 ? 'Meet' : `${n} people, led by`} ${[lead.name, lead.surname].filter(Boolean).join(' ')}.` : `${n} people, one team.`);
+    || (d.lead ? `${n === 1 ? 'Meet' : `${n} people, led by`} ${lead.name === d.lead ? [lead.name, lead.surname].filter(Boolean).join(' ') : d.lead}.` : `${n} people, one team.`);
   const pillars = $('#deptPillars');
   pillars.hidden = !d.pillars?.length;
   pillars.innerHTML = (d.pillars || []).map((p, i) => `<li><span>0${i + 1}</span>${esc(p)}</li>`).join('');
@@ -246,7 +246,7 @@ function setDept(d) {
 function fitTitle() {
   titleEl.style.fontSize = '';
   const max = parseFloat(getComputedStyle(titleEl).fontSize);
-  const w = titleEl.scrollWidth, W = titleEl.clientWidth;
+  const w = titleEl.scrollWidth, W = titleEl.parentElement.clientWidth;
   if (w > W) titleEl.style.fontSize = Math.floor((max * W) / w) + 'px';
 }
 addEventListener('resize', () => { if (!dept.hidden) fitTitle(); });
@@ -307,7 +307,7 @@ const showcase = (() => {
   function fitNames() {
     const [names] = nameLayers;
     const W = names.clientWidth;
-    const cap = innerWidth <= 900 ? Math.min(innerHeight * 0.13, W * 0.3) : innerHeight * 0.16;
+    const cap = innerWidth <= 900 ? Math.min(innerHeight * 0.068, W * 0.3) : innerHeight * 0.14;
     [...names.children].forEach((line) => {
       line.style.setProperty('--fs', '100px');
       const w = line.getBoundingClientRect().width || 1;
@@ -321,7 +321,7 @@ const showcase = (() => {
     const pending = () => {
       const f = document.createElement('div');
       f.className = 'figure figure--pending';
-      f.innerHTML = `<b>${esc(c.name[0] || '')}${esc((c.surname || '')[0] || '')}</b>Image slot ${pad(i)}${c.image ? `<code>${esc(c.image.split('/').pop())}</code>` : ''}`;
+      f.innerHTML = `<b>${esc(c.name[0] || '')}${esc((c.surname || '')[0] || '')}</b>Portrait coming soon`;
       return f;
     };
     if (!c.image) return pending();
