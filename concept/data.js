@@ -1,28 +1,28 @@
-// Content for the doors prototype.
-// To add a department: append to `departments`. Only entries with `open: true`
-// are clickable; the rest render as quiet "future" doors.
-// To add or replace people: edit `characters` below.
+// Content for the landing.
+// Every department is a door. A door opens when its department has `people`;
+// the first person in `people` is always the head of the department.
+//
+// Person fields (only name is required; empty ones are simply not shown):
+//   name, surname, role, roleLines (how the title stacks: small yellow line,
+//   then a huge line), zodiac, intro, description (blank line = new paragraph),
+//   highlight, image (full-body cut-out with a transparent background).
 
-export const departments = [
-  { id: 'digital',       name: 'Digital',       index: '01' },
-  { id: 'paid-ads',      name: 'Paid Ads',      index: '02' },
-  { id: 'international', name: 'International', index: '03', open: true },
-  { id: 'creative',      name: 'Creative',      index: '04' },
-  { id: 'production',    name: 'Production',    index: '05' },
-];
+const international = [
+  {
+    name: 'Elina',
+    surname: 'Manukyan',
+    role: 'Business Development Lead',
+    roleLines: ['Business Development', 'Lead'],
+    zodiac: 'Taurus',
+    intro: 'Business Development Lead by title, Mafia queen by reputation.',
+    description: `She loves good food, strong opinions, great outfits, and winning at Mafia.
 
-export const international = {
-  title: 'International',
-  lead: 'International connects Prodigi with markets, partners and opportunities beyond borders.',
-  pillars: ['Expos', 'Deals', 'Partners', 'Markets'],
-};
+Her music taste goes from Michael Jackson to Lilit Hovhannisyan with zero warning.
 
-// International team, in the agreed order.
-// roleLines: how the job title stacks (first line small + yellow, second line huge).
-// description: blank line = new paragraph, single newline = line break.
-// image: full-body cut-out with a transparent background. Until the file exists
-// the stage shows an "Image slot" frame with the expected file name.
-export const characters = [
+Stylish, beautiful, unapologetically feminist — and then there’s Aida. Elina loves her very, very much. If you’re standing suspiciously close to Aida… Elina has already noticed.`,
+    highlight: '“Mafia queen. Style on point. Aida under protection.”',
+    image: 'assets/international/06-elina-manukyan.webp',
+  },
   {
     name: 'Taron',
     surname: 'Sargsyan',
@@ -98,22 +98,150 @@ After work, when everyone else is ready to disappear, Karen starts his second sh
     highlight: '“20% sleep. 30% curiosity. 50% caffeine.”',
     image: 'assets/international/05-karen-vopyan.webp',
   },
+];
+
+const digital = [
   {
-    name: 'Elina',
-    surname: 'Manukyan',
-    role: 'Business Development Lead',
-    roleLines: ['Business Development', 'Lead'],
-    zodiac: 'Taurus',
-    intro: 'Business Development Lead by title, Mafia queen by reputation.',
-    description: `She loves good food, strong opinions, great outfits, and winning at Mafia.
+    name: 'Lilit',
+    surname: 'Vardanyan',
+    role: 'Head of Digital',
+    roleLines: ['Head of', 'Digital'],
+    zodiac: 'Virgo',
+    intro: 'Head of Digital by title, presentation goddess and team bestie by default.',
+    description: `She loves Russian rock, movies, series, board games — and is the undisputed office Belote queen.
 
-Her music taste goes from Michael Jackson to Lilit Hovhannisyan with zero warning.
+From the outside: calm, chill, almost “whatever.” Inside: professional overthinker, running 48 scenarios for something that probably needed two.
 
-Stylish, beautiful, unapologetically feminist — and then there’s Aida. Elina loves her very, very much. If you’re standing suspiciously close to Aida… Elina has already noticed.`,
-    highlight: '“Mafia queen. Style on point. Aida under protection.”',
-    image: 'assets/international/06-elina-manukyan.webp',
+She does impressions, tells legendary stories, and after 9 years at Prodigi has made 9,000+ presentations.`,
+    highlight: '“At this point, PowerPoint and Canva should list her as a co-founder.”',
+    image: 'assets/digital/01-lilit-vardanyan.webp',
+  },
+  {
+    name: 'Maria',
+    surname: 'Petrosyan',
+    role: 'Paid Ads Projects Lead',
+    roleLines: ['Paid Ads', 'Projects Lead'],
+    zodiac: 'Cancer',
+    intro: 'Paid Ads Projects Lead by title, professional chaos manager by nature.',
+    description: `She loves books, theatre, concerts, hiking — and dreams of someone treating her with the same level of care she gives Rob. Standards are high. Very high.
+
+She also plans to somehow own a house in every region of Armenia and, ideally, finance the whole thing with one absurdly lucky casino win.`,
+    highlight: '“At work, Maria is all in: big responsibility, big fuckups, and preferably even bigger comebacks.”',
+    image: 'assets/digital/02-maria-petrosyan.webp',
+  },
+  {
+    name: 'Albert',
+    surname: 'Azaryan',
+    role: 'Digital Marketing Specialist',
+    roleLines: ['Digital Marketing', 'Specialist'],
+    zodiac: 'Sagittarius',
+    intro: 'Digital Marketing Specialist by title, Barça loyalist by religion.',
+    description: `His essentials are simple: Messi, K-pop, Naruto, ramen and Cola. Challenge him at work and he somehow unlocks a new performance level — apparently, peace was never the strategy.
+
+He loves animals and regularly feeds street cats and dogs. He loves the letter W so much that V basically has no job in his alphabet.
+
+His long-term plan is very specific: move to Spain, have four kids, and make sure one of the boys is named Felix.`,
+    highlight: '“Valera calls him “the Viking.” Nobody knows why. Albert included.”',
+    image: 'assets/digital/03-albert-azaryan.webp',
+  },
+  {
+    name: 'Stepan',
+    surname: 'Petrosyan',
+    role: 'Digital Marketing Specialist',
+    roleLines: ['Digital Marketing', 'Specialist'],
+    zodiac: 'Cancer',
+    intro: 'Digital Marketing Specialist by title, office detective by instinct.',
+    description: `He’s been at Prodigi for just a few months, yet somehow already knows more about the team, clients, projects, and company history than people who’ve been here for years.
+
+He loves games, follows every rule like it’s written into law, and gets personally offended when someone else doesn’t.
+
+Super social, endlessly curious, and somehow capable of making even the quietest person talk.`,
+    highlight: '“Everyone else wants bigger budgets. Stepan enjoys the small ones — normal difficulty is just too boring.”',
+    image: 'assets/digital/04-stepan-petrosyan.webp',
+  },
+  {
+    name: 'Gevorg',
+    surname: 'Gasparyan',
+    role: 'Digital Marketing Specialist',
+    roleLines: ['Digital Marketing', 'Specialist'],
+    zodiac: 'Sagittarius',
+    intro: 'Digital Marketing Specialist by title, “let me figure this out properly” person by nature.',
+    description: `Responsible, hardworking, and the kind of person who never stops at “good enough.” Thanks to his Russian education, his vocabulary also occasionally comes with some very creative Russian-Armenian combinations.
+
+He loves working with AI tools, plays football well, and also makes leather goods by hand — especially bags. Because apparently one skill set wasn’t enough.`,
+    highlight: '“Only a few months at Prodigi, already a favorite of both the team and the clients.”',
+    image: 'assets/digital/05-gevorg-gasparyan.webp',
   },
 ];
+
+const seo = [
+  {
+    name: 'Seyran',
+    surname: 'Yaylakhanyan',
+    role: 'SEO Department Head',
+    roleLines: ['SEO Department', 'Head'],
+    zodiac: 'Sagittarius',
+    intro: 'SEO Department Head by title, Gyumri’s tech ambassador by nature.',
+    description: `A true SEO expert and enthusiast, fluent in rankings, algorithms, and authentic Gyumri dialect — sometimes all in the same sentence.
+
+Apple evangelist, hardcore technocrat, and a man who probably trusts an iPhone more than most people. He knows every iconic comedy reel and Kargin Haghordum episode by heart, so there’s a very real chance your joke is already in his database.
+
+Seyran is also genuinely one of the kindest people around — the type who helps literally EVERYONE, and somehow even has his own charitable humanitarian organization.`,
+    highlight: '“Rankings, algorithms and authentic Gyumri dialect. Sometimes in the same sentence.”',
+    image: 'assets/seo/01-seyran-yaylakhanyan.webp',
+  },
+  {
+    name: 'Tatul',
+    surname: 'Baghdasaryan',
+    role: 'SEO Specialist',
+    roleLines: ['SEO', 'Specialist'],
+    zodiac: 'Pisces',
+    intro: 'SEO Specialist by title, gentleman by default.',
+    description: `Polite, well-mannered, and somehow capable of explaining even the most complicated SEO process without making the client regret asking the question.
+
+He can find common ground with almost any client, translate technical SEO into normal human language, and keep his calm even when the conversation starts with, “Why aren’t we #1 on Google yet?”
+
+But Tatul’s strongest sense of optimization may have nothing to do with search engines. He also has excellent taste in women — proven by choosing Iren from our SMM team.`,
+    highlight: '“Officially the author of Prodigi’s very first office love story.”',
+    image: 'assets/seo/02-tatul-baghdasaryan.webp',
+  },
+];
+
+// Order follows the company structure.
+export const departments = [
+  {
+    id: 'ceo', name: 'CEO', lead: 'Aida',
+    people: [{ name: 'Aida', surname: 'Vopyan', role: 'CEO', roleLines: ['Chief Executive', 'Officer'], image: 'assets/ceo/01-aida-vopyan.webp' }],
+  },
+  {
+    id: 'business-dev', name: 'Business Development',
+    people: [
+      { name: 'Anahit', surname: 'Vopyan', role: 'Business Development', roleLines: ['Business', 'Development'], image: 'assets/business-development/01-anahit-vopyan.webp' },
+      { name: 'Anna', surname: 'Tchartaryan', role: 'Business Development', roleLines: ['Business', 'Development'], image: 'assets/business-development/02-anna-tchartaryan.webp' },
+      { name: 'Taguhi', surname: 'Petrosyan', role: 'Business Development', roleLines: ['Business', 'Development'], image: 'assets/business-development/03-taguhi-petrosyan.webp' },
+    ],
+  },
+  { id: 'digital', name: 'Digital', lead: 'Lilit', people: digital },
+  {
+    id: 'international', name: 'International', lead: 'Elina', tag: 'iGaming',
+    tagline: 'International connects Prodigi with markets, partners and opportunities beyond borders.',
+    pillars: ['Expos', 'Deals', 'Partners', 'Markets'],
+    people: international,
+  },
+  {
+    id: 'native-arm', name: 'Native ARM', lead: 'Hermine',
+    people: [
+      { name: 'Hermine', surname: 'Ghazaryan', role: 'Head of Native ARM', roleLines: ['Head of', 'Native ARM'], image: 'assets/native-arm/01-hermine-ghazaryan.webp' },
+      { name: 'Meri', surname: 'Ratevosyan', role: 'Native ARM', roleLines: ['Native', 'ARM'], image: 'assets/native-arm/02-meri-ratevosyan.webp' },
+    ],
+  },
+  { id: 'native-uzb', name: 'Native UZB', lead: 'Valera' },
+  { id: 'production', name: 'Production', lead: 'Siranush' },
+  { id: 'seo', name: 'SEO', lead: 'Seyran', people: seo },
+  { id: 'smm', name: 'SMM' },
+  { id: 'operations-sales', name: 'Operations & Sales' },
+  { id: 'accounting', name: 'Accounting' },
+].map((d, i) => ({ index: String(i + 1).padStart(2, '0'), ...d, people: d.people || [], open: !!d.people?.length }));
 
 export const zodiacSigns = {
   aries: '♈', taurus: '♉', gemini: '♊', cancer: '♋', leo: '♌', virgo: '♍',

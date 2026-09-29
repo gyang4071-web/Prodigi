@@ -33,11 +33,15 @@
       <p class="eyebrow">Prodigi <span aria-hidden="true">/</span> 9 years <span aria-hidden="true">/</span> One office</p>
       <h1 class="hero__title">Every department<br><em>is its own world.</em></h1>
     </div>
-    <p class="hero__aside">Choose a door. The first one is open.</p>
+    <p class="hero__aside">Scroll through the departments. Open doors glow yellow.</p>
 
     <div class="doors" id="doors" role="list"></div>
 
-    <p class="hero__foot"><span class="hero__foot-dot" aria-hidden="true"></span><span id="openCount">1</span> of <span id="doorCount">5</span> doors open</p>
+    <div class="hero__foot">
+      <button class="doors-arrow" id="doorsPrev" type="button" aria-label="Previous department">←</button>
+      <p class="hero__foot-text"><span class="hero__foot-name" id="doorName"></span><span class="hero__foot-count"><span class="hero__foot-dot" aria-hidden="true"></span><span id="openCount">1</span> of <span id="doorCount">5</span> doors open</span></p>
+      <button class="doors-arrow" id="doorsNext" type="button" aria-label="Next department">→</button>
+    </div>
   </section>
 
   <!-- SCREEN 2: DEPARTMENT (filled from JS) -->
@@ -45,7 +49,7 @@
     <div class="dept__bg" aria-hidden="true"></div>
 
     <div class="dept-intro">
-      <p class="eyebrow reveal" style="--d:0">Department 03 <span aria-hidden="true">/</span> Now open</p>
+      <p class="eyebrow reveal" style="--d:0" id="deptEyebrow"></p>
       <h2 class="dept-intro__title" id="deptTitle" aria-label="International"></h2>
       <div class="dept-intro__row">
         <p class="dept-intro__lead reveal" style="--d:4" id="deptLead"></p>
