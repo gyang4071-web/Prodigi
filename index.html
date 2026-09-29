@@ -3,171 +3,105 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0c0c0d">
-<title>Prodigi Office — 9 Years</title>
-<link rel="stylesheet" href="styles.css">
+<meta name="theme-color" content="#0b0b0a">
+<title>Prodigi — Departments</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="concept/concept.css">
 </head>
-<body>
-<div class="noise"></div>
-<div class="page">
+<body data-view="doors">
+<div class="grain" aria-hidden="true"></div>
 
 <header class="topbar">
-  <div class="brand">
-    <span class="brand-mark"></span>
-    <div class="brand-copy">
-      <strong>Prodigi Office</strong>
-      <span>9th anniversary edition</span>
-    </div>
-  </div>
-  <div class="top-actions">
-    <button class="pill-btn" id="focusPaid" type="button">Paid Ads</button>
-    <button class="pill-btn" id="openDeptTop" type="button">Enter department →</button>
-  </div>
+  <a class="logo" href="#" id="logo" aria-label="Prodigi, back to departments">
+    <span class="logo__mark" aria-hidden="true"></span>PRODIGI
+  </a>
+  <p class="topbar__meta">9th Anniversary <span aria-hidden="true">·</span> The Office</p>
+  <button class="back" id="backTop" type="button">
+    <span class="back__arrow" aria-hidden="true">←</span> <span class="back__long">Back to&nbsp;</span>departments
+  </button>
 </header>
 
-<main class="hero">
-  <div class="ambient"></div>
+<main>
+  <!-- SCREEN 1: DOORS -->
+  <section class="hero" id="hero" aria-label="Departments">
+    <div class="hero__light" aria-hidden="true"></div>
+    <div class="hero__floor" aria-hidden="true"></div>
 
-  <div class="hero-shell">
-    <div class="scene-wrap" id="sceneWrap">
-      <div class="scene" id="scene">
-        <img id="officeImage" src="assets/scene/office.png" alt="Prodigi Office — isometric studio view">
-        <div class="scene-glow"></div>
+    <div class="hero__copy">
+      <p class="eyebrow">Prodigi <span aria-hidden="true">/</span> 9 years <span aria-hidden="true">/</span> One office</p>
+      <h1 class="hero__title">Every department<br><em>is its own world.</em></h1>
+    </div>
+    <p class="hero__aside">Scroll through the departments. Open doors glow green.</p>
 
-        <div class="hero-copy">
-          <span class="eyebrow">Prodigi · 9 years</span>
-          <h1>One office.<br>Hundreds of stories.</h1>
-          <p>An interactive anniversary space built around the people, memories and teams that shaped Prodigi.</p>
-          <div class="tagline">Explore the office · Open a team · Add a memory</div>
+    <div class="doors" id="doors" role="list"></div>
+
+    <div class="hero__foot">
+      <button class="doors-arrow" id="doorsPrev" type="button" aria-label="Previous department">←</button>
+      <p class="hero__foot-text"><span class="hero__foot-name" id="doorName"></span><span class="hero__foot-count"><span class="hero__foot-dot" aria-hidden="true"></span><span id="doorSummary"></span></span></p>
+      <button class="doors-arrow" id="doorsNext" type="button" aria-label="Next department">→</button>
+    </div>
+  </section>
+
+  <!-- SCREEN 2: DEPARTMENT (filled from JS) -->
+  <section class="dept" id="dept" aria-label="International department" hidden>
+    <div class="dept__bg" aria-hidden="true"></div>
+
+    <div class="showcase" id="showcase" tabindex="0" aria-roledescription="carousel" aria-label="International team">
+      <header class="sc-head">
+        <div class="sc-head__main">
+          <p class="eyebrow reveal" style="--d:0" id="deptEyebrow"></p>
+          <h2 class="dept-intro__title" id="deptTitle"></h2>
         </div>
-
-        <!-- restrained hover-only zones for departments not yet built -->
-        <button class="dept-zone" type="button" style="left:8%;top:0%;width:37%;height:26%" tabindex="0">
-          <span class="zone-tag">We Lead · Coming soon</span>
-        </button>
-        <button class="dept-zone" type="button" style="left:51%;top:0%;width:33%;height:26%" tabindex="0">
-          <span class="zone-tag">We Build · Coming soon</span>
-        </button>
-        <button class="dept-zone" type="button" style="left:81%;top:60%;width:19%;height:32%" tabindex="0">
-          <span class="zone-tag">Coffee Corner</span>
-        </button>
-
-        <!-- Paid Ads — the one fully built department -->
-        <button class="paid-anchor" id="paidAnchor" type="button" aria-label="Open Paid Ads"
-          style="left:56%;top:15%;width:28%;height:42%"></button>
-        <div class="anchor-label"><span class="pulse"></span>Paid Ads · 5 people</div>
-
-        <!-- interactive cast layer: a member only appears once its image asset exists -->
-        <div class="cast" id="cast"></div>
-
-        <div class="scene-footer">
-          <div class="scene-note">Interactive office map<br>Room 01 · Paid Ads</div>
-          <button class="enter-cta" id="openDept" type="button">Enter Paid Ads →</button>
+        <div class="sc-head__side reveal" style="--d:3">
+          <p class="dept-intro__lead" id="deptLead"></p>
+          <ol class="dept-intro__pillars" id="deptPillars"></ol>
         </div>
+      </header>
+
+      <div class="stage" id="stage">
+        <div class="stage__floor" aria-hidden="true"></div>
+        <div class="stage__figures" id="figures"></div>
       </div>
 
-      <div class="character-card" id="characterCard" role="dialog" aria-label="Team member">
-        <button class="card-close" id="cardClose" type="button" aria-label="Close">✕</button>
-        <b id="cardName"></b>
-        <span class="card-role" id="cardRole"></span>
-        <p id="cardNote"></p>
-        <div class="card-actions">
-          <button class="card-primary" id="cardMemories" type="button">View memories →</button>
-          <button id="cardBack" type="button">← Back to team</button>
-        </div>
+      <div class="sc-left" aria-live="polite">
+        <p class="sc-count"><span class="sc-count__now" id="scIndex"></span><span class="sc-count__total" id="scTotal"></span></p>
+        <h3 class="sr-only" id="scName"></h3>
+        <div class="sc-names" id="scNames" aria-hidden="true"><div class="sc-first"></div><div class="sc-last"></div></div>
+        <p class="sc-intro swap" id="scIntro"></p>
+        <p class="sc-role" id="scRole"></p>
+        <p class="sc-zodiac swap" id="scZodiac"></p>
+      </div>
+
+      <div class="sc-right">
+        <div class="sc-desc swap" id="scDesc"></div>
+        <figure class="sc-highlight">
+          <span class="sc-highlight__label">Highlight</span>
+          <blockquote class="sc-highlight__text swap" id="scHighlight"></blockquote>
+        </figure>
+      </div>
+
+      <div class="sc-nav">
+        <button class="sc-arrow" id="prev" type="button" aria-label="Previous person">←</button>
+        <div class="sc-bars" id="bars" role="tablist" aria-label="Choose a person"></div>
+        <button class="sc-arrow" id="next" type="button" aria-label="Next person">→</button>
+        <p class="sc-hint"><span class="sc-hint--fine">Scroll, drag or use arrow keys</span><span class="sc-hint--touch">Swipe to meet the team</span></p>
       </div>
     </div>
-  </div>
+
+    <footer class="dept-foot">
+      <p class="dept-foot__note">Every door leads to a team.</p>
+      <button class="dept-foot__back" id="backBottom" type="button">
+        <span aria-hidden="true">←</span> Back to departments
+      </button>
+    </footer>
+  </section>
 </main>
 
-<section class="department" id="department" aria-hidden="true">
-  <div class="department-card" id="departmentCard">
-    <div class="dept-top">
-      <div class="breadcrumb">Prodigi Office <span>›</span> <b>Paid Ads</b></div>
-      <button class="close-dept" id="closeDept" type="button">✕ Close</button>
-    </div>
+<!-- Overlay used for the door → department transition -->
+<div class="portal" id="portal" aria-hidden="true"><div class="portal__light" id="portalLight"></div></div>
 
-    <div class="dept-content">
-      <section class="dept-hero">
-        <img src="assets/scene/paid_ads_team.png" alt="Paid Ads team">
-        <div class="dept-shade"></div>
-        <div class="dept-hero-copy">
-          <div>
-            <span class="eyebrow">Paid Ads · Team space</span>
-            <h2>Meet the team</h2>
-            <p>Lilit · Maria · Stepan · Albert · Gevorg</p>
-          </div>
-          <button class="white-cta" id="teamGalleryCta" type="button">Open team gallery →</button>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-heading">
-          <div>
-            <h3>People behind the campaigns</h3>
-            <p>Open any person to see their personal gallery.</p>
-          </div>
-          <button class="section-link" id="teamGalleryLink" type="button">Team gallery →</button>
-        </div>
-
-        <div class="team-grid">
-          <button class="person" type="button" data-album="lilit" data-title="Lilit">
-            <img src="assets/portraits/lilit.png" alt="Lilit">
-            <span class="person-copy"><b>Lilit</b><small>Head of Digital Department</small></span>
-            <span class="arrow">↗</span>
-          </button>
-
-          <button class="person" type="button" data-album="maria" data-title="Maria Petrosyan">
-            <img src="assets/portraits/maria.png" alt="Maria Petrosyan">
-            <span class="person-copy"><b>Maria Petrosyan</b><small>Head of Paid Ads</small></span>
-            <span class="arrow">↗</span>
-          </button>
-
-          <button class="person" type="button" data-album="stepan" data-title="Stepan">
-            <img src="assets/portraits/stepan.png" alt="Stepan">
-            <span class="person-copy"><b>Stepan</b><small>Paid Ads Specialist / Account Manager</small></span>
-            <span class="arrow">↗</span>
-          </button>
-
-          <button class="person" type="button" data-album="albert" data-title="Albert Azaryan">
-            <img src="assets/portraits/albert.png" alt="Albert Azaryan">
-            <span class="person-copy"><b>Albert Azaryan</b><small>Paid Ads Specialist / Account Manager</small></span>
-            <span class="arrow">↗</span>
-          </button>
-
-          <button class="person" type="button" data-album="gevorg" data-title="Gevorg Gasparyan">
-            <img src="assets/portraits/gevorg.png" alt="Gevorg Gasparyan">
-            <span class="person-copy"><b>Gevorg Gasparyan</b><small>Paid Ads Specialist / Account Manager</small></span>
-            <span class="arrow">↗</span>
-          </button>
-        </div>
-      </section>
-
-      <section class="section gallery-shell" id="gallerySection">
-        <div class="gallery-top">
-          <div>
-            <h3 id="galleryTitle">Team Gallery</h3>
-            <p id="gallerySubtitle">Office moments, events and memories from Paid Ads.</p>
-          </div>
-          <div class="gallery-actions">
-            <button class="small-btn back-gallery" id="backGallery" type="button">← Team gallery</button>
-            <label class="upload">＋ Add memory
-              <input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp" multiple>
-            </label>
-          </div>
-        </div>
-        <div class="gallery-status" id="galleryStatus"></div>
-        <div class="photo-grid" id="photoGrid"></div>
-      </section>
-    </div>
-  </div>
-</section>
-
-<div class="lightbox" id="lightbox" aria-hidden="true">
-  <button id="closeLightbox" type="button">✕</button>
-  <img id="lightboxImage" alt="">
-</div>
-
-<script src="app.js"></script>
+<script type="module" src="concept/concept.js"></script>
 </body>
 </html>
