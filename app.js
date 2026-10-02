@@ -2,30 +2,16 @@
   'use strict';
 
   // ---------------------------------------------------------------------
-  // Paid Ads cast — data-driven. Each member renders ONLY if its image
-  // asset actually loads. Coordinates (x,y) are percentages of the office
-  // scene and anchor each character's FEET (bottom-center), confined to
-  // the upper-right zone under WE BUILD (never near Coffee Corner).
-  // height (h) is a percentage of the scene's own height, so scale tracks
-  // the office artwork at every breakpoint instead of the viewport.
+  // Paid Ads cast — configured in team.json. Each member renders ONLY if
+  // its image asset actually loads. x/y are percentages of the office scene
+  // and anchor each character's FEET (bottom-center). The team stands as one
+  // group on the open floor beside the Paid Ads desks under WE BUILD (never
+  // on furniture, never near Coffee Corner). Height is BASE_H% of the
+  // scene's own height times `scale`, so size tracks the office artwork at
+  // every breakpoint; larger y = closer to the viewer = higher zIndex.
   // ---------------------------------------------------------------------
-  const TEAM = [
-    { id:'maria',  name:'Maria Petrosyan',  role:'Head of Paid Ads',
-      note:'Can spot a broken campaign before coffee.',
-      image:'assets/team/maria.png',  x:62, y:31, h:17, z:2, pose:'standing' },
-    { id:'lilit',  name:'Lilit',            role:'Head of Digital Department',
-      note:'Can turn “one small request” into a full launch plan.',
-      image:'assets/team/lilit.png',  x:68, y:30, h:12, z:1, pose:'sitting'  },
-    { id:'gevorg', name:'Gevorg Gasparyan', role:'Paid Ads Specialist / Account Manager',
-      note:'Explains PPC with his hands before opening the dashboard.',
-      image:'assets/team/gevorg.png', x:61, y:47, h:18, z:4, pose:'standing' },
-    { id:'albert', name:'Albert Azaryan',   role:'Paid Ads Specialist / Account Manager',
-      note:'Thinking in funnels even during lunch.',
-      image:'assets/team/albert.png', x:83, y:51, h:18, z:5, pose:'standing' },
-    { id:'stepan', name:'Stepan',           role:'Paid Ads Specialist / Account Manager',
-      note:'Probably has 14 tabs open right now.',
-      image:'assets/team/stepan.png', x:77, y:43, h:12, z:3, pose:'sitting'  },
-  ];
+  const BASE_H = 20;
+  let TEAM = [];
 
   const sceneWrap = document.getElementById('sceneWrap');
   const scene = document.getElementById('scene');
@@ -64,8 +50,8 @@
       btn.dataset.id = member.id;
       btn.style.setProperty('--m-x', member.x + '%');
       btn.style.setProperty('--m-y', member.y + '%');
-      btn.style.setProperty('--m-h', member.h + '%');
-      btn.style.setProperty('--m-z', member.z);
+      btn.style.setProperty('--m-h', (BASE_H * (member.scale || 1)) + '%');
+      btn.style.setProperty('--m-z', member.zIndex || 1);
       btn.setAttribute('aria-label', `${member.name} — ${member.role}`);
 
       const img = document.createElement('img');
@@ -329,6 +315,9 @@
     officeImage.style.transform = 'scale(1.015)';
   });
 
-  buildCast();
+  fetch('team.json', {cache:'no-cache'})
+    .then(r => r.json())
+    .then(data => { TEAM = Array.isArray(data.team) ? data.team : []; buildCast(); })
+    .catch(err => console.error('Could not load team.json', err));
   loadGallery();
 })();
