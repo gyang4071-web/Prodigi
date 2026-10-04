@@ -112,8 +112,7 @@ const digital = [
 
 From the outside: calm, chill, almost “whatever.” Inside: professional overthinker, running 48 scenarios for something that probably needed two.
 
-She does impressions, tells legendary stories, and after 9 years at Prodigi has made 9,000+ presentations.`,
-    highlight: '“At this point, PowerPoint and Canva should list her as a co-founder.”',
+She does impressions, tells legendary stories, and after 9 years at Prodigi has made 9,000+ presentations. At this point, PowerPoint and Canva should list her as a co-founder.`,
     image: 'assets/digital/01-lilit-vardanyan.webp',
   },
   {
@@ -125,8 +124,9 @@ She does impressions, tells legendary stories, and after 9 years at Prodigi has 
     intro: 'Paid Ads Projects Lead by title, professional chaos manager by nature.',
     description: `She loves books, theatre, concerts, hiking — and dreams of someone treating her with the same level of care she gives Rob. Standards are high. Very high.
 
-She also plans to somehow own a house in every region of Armenia and, ideally, finance the whole thing with one absurdly lucky casino win.`,
-    highlight: '“At work, Maria is all in: big responsibility, big fuckups, and preferably even bigger comebacks.”',
+She also plans to somehow own a house in every region of Armenia and, ideally, finance the whole thing with one absurdly lucky casino win.
+
+At work, Maria is all in: big responsibility, big fuckups, and preferably even bigger comebacks.`,
     image: 'assets/digital/02-maria-petrosyan.webp',
   },
   {
@@ -140,8 +140,7 @@ She also plans to somehow own a house in every region of Armenia and, ideally, f
 
 He loves animals and regularly feeds street cats and dogs. He loves the letter W so much that V basically has no job in his alphabet.
 
-His long-term plan is very specific: move to Spain, have four kids, and make sure one of the boys is named Felix.`,
-    highlight: '“Valera calls him “the Viking.” Nobody knows why. Albert included.”',
+His long-term plan is very specific: move to Spain, have four kids, and make sure one of the boys is named Felix. Valera calls him “the Viking.” Nobody knows why. Albert included. At this point, asking would ruin the mystery.`,
     image: 'assets/digital/03-albert-azaryan.webp',
   },
   {
@@ -155,8 +154,9 @@ His long-term plan is very specific: move to Spain, have four kids, and make sur
 
 He loves games, follows every rule like it’s written into law, and gets personally offended when someone else doesn’t.
 
-Super social, endlessly curious, and somehow capable of making even the quietest person talk.`,
-    highlight: '“Everyone else wants bigger budgets. Stepan enjoys the small ones — normal difficulty is just too boring.”',
+Super social, endlessly curious, and somehow capable of making even the quietest person talk.
+
+And while everyone else wants bigger budgets, Stepan actually enjoys the small ones — because apparently, normal difficulty is just too boring.`,
     image: 'assets/digital/04-stepan-petrosyan.webp',
   },
   {
@@ -168,8 +168,9 @@ Super social, endlessly curious, and somehow capable of making even the quietest
     intro: 'Digital Marketing Specialist by title, “let me figure this out properly” person by nature.',
     description: `Responsible, hardworking, and the kind of person who never stops at “good enough.” Thanks to his Russian education, his vocabulary also occasionally comes with some very creative Russian-Armenian combinations.
 
-He loves working with AI tools, plays football well, and also makes leather goods by hand — especially bags. Because apparently one skill set wasn’t enough.`,
-    highlight: '“Only a few months at Prodigi, already a favorite of both the team and the clients.”',
+He loves working with AI tools, plays football well, and also makes leather goods by hand — especially bags. Because apparently one skill set wasn’t enough.
+
+He’s only been at Prodigi for a few months, but has already become a favorite of both the team and the clients.`,
     image: 'assets/digital/05-gevorg-gasparyan.webp',
   },
 ];
@@ -187,7 +188,6 @@ const seo = [
 Apple evangelist, hardcore technocrat, and a man who probably trusts an iPhone more than most people. He knows every iconic comedy reel and Kargin Haghordum episode by heart, so there’s a very real chance your joke is already in his database.
 
 Seyran is also genuinely one of the kindest people around — the type who helps literally EVERYONE, and somehow even has his own charitable humanitarian organization.`,
-    highlight: '“Rankings, algorithms and authentic Gyumri dialect. Sometimes in the same sentence.”',
     image: 'assets/seo/01-seyran-yaylakhanyan.webp',
   },
   {
@@ -201,8 +201,7 @@ Seyran is also genuinely one of the kindest people around — the type who helps
 
 He can find common ground with almost any client, translate technical SEO into normal human language, and keep his calm even when the conversation starts with, “Why aren’t we #1 on Google yet?”
 
-But Tatul’s strongest sense of optimization may have nothing to do with search engines. He also has excellent taste in women — proven by choosing Iren from our SMM team.`,
-    highlight: '“Officially the author of Prodigi’s very first office love story.”',
+But Tatul’s strongest sense of optimization may have nothing to do with search engines. He also has excellent taste in women — proven by choosing Iren from our SMM team and officially creating Prodigi’s very first office love story.`,
     image: 'assets/seo/02-tatul-baghdasaryan.webp',
   },
 ];
@@ -217,10 +216,7 @@ const production = [
     intro: 'Head of Production by title, tech witch by skill set, future farmer by life plan.',
     description: `She knows marketing, understands AI suspiciously well, and at this point treats AI agents less like tools and more like unpaid members of her department.
 
-Cats, dogs, cooking, cute anime, vegetables from her own garden — basically, half production head, half cottage-core final boss.
-
-At first she may seem a little spiky. Plot twist: she’s actually very cute.`,
-    highlight: '“Just check the weather before approaching — her mood may already have synced with it.”',
+Cats, dogs, cooking, cute anime, vegetables from her own garden — basically, half production head, half cottage-core final boss. At first she may seem a little spiky. Plot twist: she’s actually very cute. Just check the weather before approaching — her mood may already have synced with it.`,
     // character render not supplied yet: the stage shows an image slot
     image: 'assets/production/01-siranush-tovmasyan.webp',
   },
@@ -231,12 +227,11 @@ At first she may seem a little spiky. Plot twist: she’s actually very cute.`,
     roleLines: ['Senior Graphic', 'Designer'],
     zodiac: 'Pisces',
     intro: 'Senior Graphic Designer by title, branding superstar and unofficial taste police by nature.',
-    description: `Clothes, interiors, music, movies — Anna has an opinion on everything, and annoyingly, it’s usually right. With a past in cinema, bad composition has no chance.
+    description: `Clothes, interiors, music, movies — Anna has an opinion on everything, and annoyingly, it’s usually right. With a past in cinema, bad composition has no chance. She loves Zemfira, Okean Elzy, traveling, and making brands look expensive.
 
-She loves Zemfira, Okean Elzy, traveling, and making brands look expensive.
+At first, she may seem “a little complicated.” Later, people somehow can’t imagine life without her.
 
-At first, she may seem “a little complicated.” Later, people somehow can’t imagine life without her.`,
-    highlight: '“Anna has compromising videos from almost every corporate party. Stay on her good side.”',
+And yes, Anna has compromising videos from almost every corporate party. So basically, everyone should stay on her good side.`,
     image: 'assets/production/02-anna-hovhannisyan.webp',
   },
   {
@@ -248,8 +243,7 @@ At first, she may seem “a little complicated.” Later, people somehow can’t
     intro: 'Motion Graphic Designer by title, cinema encyclopedia by default.',
     description: `Dolly, shooting, character animation — he knows the whole game. He climbed Mount Ararat with the Prodigi flag and has literally worked from a mountain, because apparently altitude is not an excuse.
 
-He loves rabiz, can stretch one bag of chips for two weeks, and owns basically every vehicle known to mankind. Bike, moto, car, off-roader… probably a helicopter and a private jet too.`,
-    highlight: '“No proof. But we all know.”',
+He loves rabiz, can stretch one bag of chips for two weeks, and owns basically every vehicle known to mankind. Bike, moto, car, off-roader…probably a helicopter and a private jet too. No proof. But we all know.`,
     image: 'assets/production/03-tigran-hovhannisyan.webp',
   },
 ];
