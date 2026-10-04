@@ -7,6 +7,61 @@
 //   then a huge line), zodiac, intro, description (blank line = new paragraph),
 //   highlight, image (full-body cut-out with a transparent background).
 
+const founders = [
+  {
+    name: 'Aida',
+    surname: 'Vopyan',
+    role: 'Co-Founder & CEO',
+    roleLines: ['Co-Founder', '& CEO'],
+    zodiac: 'Leo',
+    intro: "Co-Founder & CEO by title, ProDigi’s heart, engine, and ultimate keeper of the vision by nature.",
+    description: `The most hardworking, organized, and devoted person you could ever meet. Aida knows everything about ProDigi — from A to Z, and probably somewhere beyond Z too. ProDigi isn’t just a company to her; it’s her world, and she somehow spends every day making that world bigger, better, and more wonderful.
+
+She’s deeply loved and respected by the team — and for good reason. Aida is the kind of person who genuinely lives for the people around her: her family, siblings, friends, and team. Caring, generous, endlessly giving, and always ready to show up for the people she loves.
+
+She also has two great passions: travel and shopping — preferably combined. And she’s always ready to try something new: a new dish, a new place, a new experience, a new adventure.
+
+And then there’s The Lion King. Aida lives by one simple reminder: “Remember who you are.” No matter what happens, how much things change, or how complicated life gets, she stays grounded in who she is, what she believes in, and the values that brought her here.
+
+Because ultimately, that’s Aida — someone who built a world, takes care of everyone in it, and never forgets who she is.`,
+    image: 'assets/ceo/01-aida-vopyan.webp',
+  },
+  {
+    name: 'Boris',
+    surname: 'Sahakyan',
+    role: 'Co-Founder',
+    roleLines: ['Co-Founder', 'Visionary'],
+    zodiac: 'Pisces',
+    intro: "Co-Founder and ProDigi’s visionary by title, professional adventurer and business-instinct machine by nature.",
+    description: `A true visionary in basically everything. Boris has an almost suspiciously strong ability to predict where things are going and somehow notices the tiniest details in business before everyone else does.
+
+He loves creating new things — a new business, a new idea, a new opportunity. He’s built several successful businesses, with a big part of that success coming from his incredible business intuition.
+
+Boris also has a serious weakness for adventures. He loves traveling, discovering new places, experiencing how locals actually live, and, naturally, finding the nearest techno party.
+
+And when it comes to team parties, Boris is basically a different department altogether. The team absolutely loves partying with him — he gets everyone dancing, keeps the energy going, has surprisingly interesting conversations with team.
+
+Basically, Boris doesn’t just see where the world is going — he usually wants to go there first.`,
+    image: 'assets/ceo/02-boris-sahakyan.webp',
+  },
+  {
+    name: 'Arsen',
+    surname: 'Sultanyan',
+    role: 'Co-Founder',
+    roleLines: ['Prodigi', 'Co-Founder'],
+    zodiac: 'Sagittarius',
+    intro: "Co-Founder by title, the true Sultan of Digital by nature.",
+    description: `Exceptionally smart and deeply immersed in both digital and business. Arsen is one of the people who helped take digital marketing in Armenia to a whole new level — always looking beyond the obvious and thinking several steps ahead.
+
+He loves diving into new business directions and turning new ideas into products, guided by a powerful combination of expertise and intuition.
+
+Calm, humble, intelligent, and genuinely respectful, Arsen is someone the team deeply respects and trusts. And outside of business, he’s a father of four — and an incredibly devoted and exemplary one.
+
+With a surname like Sultanyan, there was really only one possible title: the true Sultan of Digital.`,
+    image: 'assets/ceo/03-arsen-sultanyan.webp',
+  },
+];
+
 const international = [
   {
     name: 'Elina',
@@ -256,10 +311,7 @@ const team = (label, folder, count) => Array.from({ length: count }, (_, i) => (
 
 // Order follows the company structure.
 export const departments = [
-  {
-    id: 'ceo', name: 'CEO', lead: 'Aida',
-    people: [{ name: 'Aida', surname: 'Vopyan', role: 'CEO', roleLines: ['Chief Executive', 'Officer'], image: 'assets/ceo/01-aida-vopyan.webp' }],
-  },
+  { id: 'ceo', name: 'Founders', lead: 'Aida', people: founders },
   {
     id: 'business-dev', name: 'Business Development',
     people: [
