@@ -293,7 +293,24 @@ const showcase = (() => {
     el[key].innerHTML = html;
     (key === 'highlight' ? el[key].closest('figure') : el[key]).hidden = !html;
     if (key === 'desc' || key === 'highlight') root.classList.toggle('is-quiet', !c.description && !c.highlight);
+    if (key === 'desc') fitDesc();
   }
+
+  // Long descriptions are shown in full: on desktop the right column widens,
+  // then the type steps down, until the text clears the department header.
+  const head = document.querySelector('.sc-head');
+  function fitDesc() {
+    const box = el.desc.closest('.sc-right');
+    box.style.width = ''; el.desc.style.fontSize = '';
+    if (innerWidth <= 900 || !head || el.desc.hidden) return;
+    const room = () => box.getBoundingClientRect().top - head.getBoundingClientRect().bottom - 24;
+    const maxW = Math.min(innerWidth * 0.3, 440);
+    let w = box.getBoundingClientRect().width;
+    while (room() < 0 && w < maxW) { w = Math.min(w + 20, maxW); box.style.width = w + 'px'; }
+    let fs = parseFloat(getComputedStyle(el.desc).fontSize);
+    while (room() < 0 && fs > 11) { fs -= 0.5; el.desc.style.fontSize = fs + 'px'; }
+  }
+  addEventListener('resize', fitDesc);
 
   // Huge names: every line is sized to the width of the left column, capped by
   // viewport height, so short and long names both hold the composition.
