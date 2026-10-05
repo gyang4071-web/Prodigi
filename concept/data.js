@@ -70,12 +70,9 @@ const international = [
     roleLines: ['Business Development', 'Lead'],
     zodiac: 'Taurus',
     intro: 'Business Development Lead by title, Mafia queen by reputation.',
-    description: `She loves good food, strong opinions, great outfits, and winning at Mafia.
-
-Her music taste goes from Michael Jackson to Lilit Hovhannisyan with zero warning.
+    description: `She loves good food, strong opinions, great outfits, and winning at Mafia. Her music taste goes from Michael Jackson to Lilit Hovhannisyan with zero warning.
 
 Stylish, beautiful, unapologetically feminist — and then there’s Aida. Elina loves her very, very much. If you’re standing suspiciously close to Aida… Elina has already noticed.`,
-    highlight: '“Mafia queen. Style on point. Aida under protection.”',
     image: 'assets/international/06-elina-manukyan.webp',
   },
   {
@@ -87,10 +84,9 @@ Stylish, beautiful, unapologetically feminist — and then there’s Aida. Elina
     intro: 'International Sales Manager by title, professional deal-maker by instinct.',
     description: `In iGaming, he can sell absolutely anything — even a product he discovered three hours ago and already explains like he invented it.
 
-He lives for expos, new connections, and conversations that somehow end with a deal.
+He lives for expos, new connections, and conversations that somehow end with a deal. Add perfect Russian, signature curly hair, and a gym-built body — basically, unfair competition.
 
-Add perfect Russian, signature curly hair, and a gym-built body — basically, unfair competition.`,
-    highlight: '“Give Taron a product, a badge, and one coffee break at an expo… he’ll come back with leads.”',
+Give Taron a product, a badge, and one coffee break at an expo… he’ll come back with leads.`,
     image: 'assets/international/01-taron-sargsyan.webp',
   },
   {
@@ -99,13 +95,10 @@ Add perfect Russian, signature curly hair, and a gym-built body — basically, u
     role: 'iGaming Media Partnerships Manager',
     roleLines: ['iGaming Media', 'Partnerships Manager'],
     zodiac: 'Scorpio',
-    intro: 'iGaming Media Partnerships Manager by title, full-time researcher by nature.',
+    intro: 'iGaming Media Partnerships Manager by title, full-time researcher by nature 🔍',
     description: `New product, audit, research, random idea — Eduard wants to understand everything. Preferably deeper than anyone asked.
 
-His gesticulation deserves its own championship — honestly, he could probably explain an entire media plan without saying a word.
-
-He’s caring, focused, and somehow always the unofficial guide for every new team member.`,
-    highlight: '“When it comes to work, the calendar is mostly decorative — weekdays, weekends, after-hours… same energy.”',
+His gesticulation deserves its own championship — honestly, he could probably explain an entire media plan without saying a word. He’s caring, focused, and somehow always the unofficial guide for every new team member. And when it comes to work, the calendar is mostly decorative — weekdays, weekends, after-hours… same energy.`,
     image: 'assets/international/02-eduard-saghatelyan.webp',
   },
   {
@@ -115,12 +108,11 @@ He’s caring, focused, and somehow always the unofficial guide for every new te
     roleLines: ['International', 'Sales Manager'],
     zodiac: 'Aries',
     intro: 'International Sales Manager by day, future superstar by destiny.',
-    description: `Always chasing bigger deals, bigger dreams, and eventually, a very big bank account.
+    description: `Always chasing bigger deals, bigger dreams, and eventually, a very big bank account. His favorite word? “HaVVai eli”.
 
-His favorite word? “HaVVai eli”. Nobody knows exactly what it means, but Gor says it with confidence — and that’s what matters.
+Nobody knows exactly what it means, but Gor says it with confidence — and that’s what matters.
 
-And then there’s his hair — basically sacred territory. The world may collapse, markets may crash, but Gor is NOT cutting it short.`,
-    highlight: '“Big deals. Big dreams. Long hair. Priorities.”',
+And then there’s his hair — basically sacred territory. The world may collapse, markets may crash, but Gor is not cutting it short. Priorities.`,
     image: 'assets/international/03-gor-avetisyan.webp',
   },
   {
@@ -130,12 +122,9 @@ And then there’s his hair — basically sacred territory. The world may collap
     roleLines: ['International', 'Sales Manager'],
     zodiac: 'Sagittarius',
     intro: 'International Sales Manager by title, everyone’s favorite by default.',
-    description: `Charismatic, always smiling, with cat-like eyes that could probably close a deal before the pitch even starts.
+    description: `Charismatic, always smiling, with cat-like eyes that could probably close a deal before the pitch even starts. He’s a Real Madrid fan, easygoing, fun — but notices everything: every typo, every tiny mistake, every detail you hoped nobody would see.
 
-He’s a Real Madrid fan, easygoing and fun — but notices everything: every typo, every tiny mistake, every detail you hoped nobody would see.
-
-He doesn’t make much noise about his work. One minute he’s just smiling, the next there’s a big-budget deal on the table like it appeared by magic.`,
-    highlight: '“Smiles quietly. Spots everything. Somehow comes back with the big deal.”',
+He doesn’t make much noise about his work — one minute he’s just smiling, the next there’s a big-budget deal on the table like it appeared by magic.`,
     image: 'assets/international/04-michael-gabrielyan.webp',
   },
   {
@@ -147,10 +136,9 @@ He doesn’t make much noise about his work. One minute he’s just smiling, the
     intro: 'Marketing Assistant by title, youngest in the team, but definitely not in ambition.',
     description: `At first, he may seem quiet and serious. Then, out of nowhere, he drops one perfectly timed joke and the whole team forgets what they were working on.
 
-He’s good at Belote, suspiciously committed to energy drinks, and probably running on 20% sleep, 30% curiosity, 50% caffeine.
+He’s good at Belote, suspiciously committed to energy drinks, and probably running on 20% sleep, 30% curiosity, and 50% caffeine.
 
 After work, when everyone else is ready to disappear, Karen starts his second shift: asking questions about the team, the company, the processes — basically conducting his own internal audit.`,
-    highlight: '“20% sleep. 30% curiosity. 50% caffeine.”',
     image: 'assets/international/05-karen-vopyan.webp',
   },
 ];
