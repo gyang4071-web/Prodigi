@@ -259,6 +259,8 @@ He can find common ground with almost any client, translate technical SEO into n
 But Tatul’s strongest sense of optimization may have nothing to do with search engines. He also has excellent taste in women — proven by choosing Iren from our SMM team and officially creating Prodigi’s very first office love story.`,
     image: 'assets/seo/02-tatul-baghdasaryan.webp',
   },
+  { name: 'SEO', surname: 'Team', roleLines: ['Name', 'coming soon'], image: 'assets/seo/03-seo-team.webp' },
+  { name: 'SEO', surname: 'Team', roleLines: ['Name', 'coming soon'], image: 'assets/seo/04-seo-team.webp' },
 ];
 
 const production = [
