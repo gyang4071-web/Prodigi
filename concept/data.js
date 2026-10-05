@@ -305,9 +305,41 @@ export const departments = [
   {
     id: 'business-dev', name: 'Business Development',
     people: [
-      { name: 'Anahit', surname: 'Vopyan', role: 'Business Development', roleLines: ['Business', 'Development'], image: 'assets/business-development/01-anahit-vopyan.webp' },
-      { name: 'Anna', surname: 'Tchartaryan', role: 'Business Development', roleLines: ['Business', 'Development'], image: 'assets/business-development/02-anna-tchartaryan.webp' },
-      { name: 'Taguhi', surname: 'Petrosyan', role: 'Business Development', roleLines: ['Business', 'Development'], image: 'assets/business-development/03-taguhi-petrosyan.webp' },
+      {
+      name: 'Anahit', surname: 'Vopyan', role: 'Partnerships Director', roleLines: ['Partnerships', 'Director'],
+      zodiac: 'Cancer',
+      intro: 'Partnerships Director by title, aesthetic director of literally everything by nature.',
+      description: `An absolute aesthetic connoisseur who can turn basically anything into content-worthy material. A meal, a cocktail, a random street corner — her first thought is always “How will this look on social?”
+
+Exceptionally hardworking, a phenomenal project manager, and basically a human reminder system. Her memory is freakishly good — she remembers everything, down to the smallest detail, date, and sometimes even the exact hour.
+
+And if something in your life is suddenly perfectly organized, beautifully presented, and somehow already remembered three weeks in advance… there’s a very good chance Anahit had something to do with it.`,
+      image: 'assets/business-development/01-anahit-vopyan.webp',
+    },
+      {
+      name: 'Anna', surname: 'Tshartaryan', role: 'Commercial Director', roleLines: ['Commercial', 'Director'],
+      zodiac: 'Virgo',
+      intro: 'Commercial Director by title, explorer of the world and lover of everything extraordinary by nature.',
+      description: `Anna loves to travel and explore the world — from ancient cities and European architecture to the most exotic places on the planet. She simply loves to do things differently — and you can check her wedding photos for proof. 😉
+
+She loves the extraordinary in everything: food, decorations, client gifts, Christmas trees… basically, if there’s a way to make something more interesting, Anna will find it.
+
+A genuinely nice person, a brilliant communicator, and a sales powerhouse with BIG experience. Many, many ProDigi clients are Anna’s clients — so at this point, she’s practically a walking client portfolio.`,
+      image: 'assets/business-development/02-anna-tchartaryan.webp',
+    },
+      {
+      name: 'Taguhi', surname: 'Petrosyan', role: 'Director of Operations', roleLines: ['Director of', 'Operations'],
+      zodiac: 'Sagittarius',
+      intro: 'Director of Operations by title, ProDigi’s unofficial problem-solving headquarters by nature.',
+      description: `An exceptionally funny person and the comfort zone of many employees — the person you go to when you need to figure something out, fix something, or simply make sense of a complicated situation.
+
+Strong, independent, goal-oriented, organized, and hardworking — Taguhi can probably figure out almost anything if you give her enough time and a laptop.
+
+A former accountant with an almost suspiciously good command of accounting and legal processes. These days, she’s busy localizing businesses and traveling the world for work — because apparently solving problems in one country wasn’t challenging enough.
+
+Basically, if something is complicated, involves paperwork, numbers, legal processes, or international business… there’s a very good chance Taguhi already knows what to do.`,
+      image: 'assets/business-development/03-taguhi-petrosyan.webp',
+    },
     ],
   },
   { id: 'digital', name: 'Digital', lead: 'Lilit', people: digital },
@@ -320,8 +352,32 @@ export const departments = [
   {
     id: 'native-arm', name: 'Native ARM', lead: 'Hermine',
     people: [
-      { name: 'Hermine', surname: 'Ghazaryan', role: 'Head of Native ARM', roleLines: ['Head of', 'Native ARM'], image: 'assets/native-arm/01-hermine-ghazaryan.webp' },
-      { name: 'Meri', surname: 'Ratevosyan', role: 'Native ARM', roleLines: ['Native', 'ARM'], image: 'assets/native-arm/02-meri-ratevosyan.webp' },
+      {
+      name: 'Hermine', surname: 'Ghazaryan', role: 'Native Network ARM Director', roleLines: ['Native Network', 'ARM Director'],
+      zodiac: 'Leo',
+      intro: 'Native Network ARM Director by title, master of keeping things perfectly under control by nature.',
+      description: `Probably the most rational person at ProDigi. Emotions? She has them maybe — she just doesn’t let them interfere with the decision-making process. 😄
+
+Extremely organized and incredibly fast, Hermine somehow manages to handle work, her kids, and approximately a thousand other things without making it look like a crisis.
+
+One of her strongest superpowers? Money. Counting it, managing it, pricing, margins, budgets — if numbers need to make sense, Hermine will make them make sense.
+
+Calm, straightforward, and completely drama-free. No unnecessary emotions, no complicated stories — just a clear plan, the right numbers, and somehow everything gets done.`,
+      image: 'assets/native-arm/01-hermine-ghazaryan.webp',
+    },
+      {
+      name: 'Meri', surname: 'Ratevosyan', role: 'Customer Service Specialist', roleLines: ['Customer Service', 'Specialist'],
+      zodiac: 'Virgo',
+      intro: 'Customer Service Specialist by title, ProDigi’s chief organizer, fixer, and unofficial office commander by nature.',
+      description: `Probably the most organized person in the world. Meri notices everything, fixes everything, and can help with almost any task — often before you even realize you need help.
+
+A former Office Administrator, she knows every little detail of the office and exactly how everything is supposed to work.
+
+She’s incredibly caring and always looks after everyone — but don’t let the kindness fool you. Meri is also very bossy. Office service providers are afraid of her. The team is slightly afraid of her. And honestly, that’s probably why everything works so well.
+
+If something is broken, missing, or disorganized… Meri already knows about it.`,
+      image: 'assets/native-arm/02-meri-ratevosyan.webp',
+    },
     ],
   },
   { id: 'native-uzb', name: 'Native UZB', lead: 'Valera', people: team('Native UZB', 'native-uzb', 4) },
@@ -330,10 +386,21 @@ export const departments = [
   { id: 'smm', name: 'SMM', people: team('SMM', 'smm', 5) },
   { id: 'operations-sales', name: 'Operations & Sales', people: team('Ops & Sales', 'operations-sales', 5) },
   {
-    id: 'accounting', name: 'Accounting',
+    id: 'accounting', name: 'Accounting', lead: 'Gevorg',
     people: [
+      {
+      name: 'Gevorg', surname: 'Nazaretyan', role: 'Chief Accountant', roleLines: ['Chief', 'Accountant'],
+      intro: 'Chief Accountant by title, surprisingly relaxed human by nature.',
+      description: `Flexible, practical, easy to communicate with, and proof that accounting doesn’t always have to come with stress and a serious face. He’s smart, well-mannered, genuinely caring, and somehow integrated into the team almost instantly.
+
+Outside spreadsheets and numbers, Gevorg has great taste in music, is a certified party animal, and can switch from financial logic to Katibe-style dancing with absolutely no transition.
+
+He also has a mysteriously complicated relationship with Georgia — but that’s probably a story for another office party.
+
+Apparently, spreadsheets and Katibe moves can live in perfect harmony.`,
+      image: 'assets/accounting/02-gevorg-nazaretyan.webp',
+    },
       { name: 'Arpi', surname: 'Zaqaryan', role: 'Accounting', roleLines: ['Prodigi', 'Accounting'], image: 'assets/accounting/01-arpi-zaqaryan.webp' },
-      { name: 'Gevorg', surname: 'Nazaretyan', role: 'Accounting', roleLines: ['Prodigi', 'Accounting'], image: 'assets/accounting/02-gevorg-nazaretyan.webp' },
       { name: 'Lusik', surname: 'Melqonyan', role: 'Accounting', roleLines: ['Prodigi', 'Accounting'], image: 'assets/accounting/03-lusik-melqonyan.webp' },
     ],
   },
